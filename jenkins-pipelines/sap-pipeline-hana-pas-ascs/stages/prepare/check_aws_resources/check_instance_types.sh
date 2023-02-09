@@ -6,9 +6,9 @@
 # ------------------------------------------------------------------
 # Check if the Hana instance type is valid
 # ------------------------------------------------------------------
-hana_found=$(aws ec2 describe-instance-type-offerings --region "$AWS_REGION_CHKD" --profile "$CLI_PROFILE_CHKD" | grep -c "$HANA_INSTANCE_TYPE_CHKD")
-if [ "$hana_found" -eq 0 ]; then
-    echo "The Hana instance type you described on variable HANA_INSTANCE_TYPE is invalid"
+oracle_found=$(aws ec2 describe-instance-type-offerings --region "$AWS_REGION_CHKD" --profile "$CLI_PROFILE_CHKD" | grep -c "$ORACLE_INSTANCE_TYPE_CHKD")
+if [ "$oracle_found" -eq 0 ]; then
+    echo "The Oracle instance type you described on variable ORACLE_INSTANCE_TYPE is invalid"
     exit 100
 fi
 
