@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AMI_ID_DR" ]; then
-    echo "Invalid AMI ID_DR. Check your AMI Id of DR on AWS Marketplace > RHEL 8.2"
+if [ -z "$AMI_ID_ORACLE" ]; then
+    echo "Invalid AMI ID_ORACLE. Check your AMI Id of ORACLE on AWS Marketplace "
     exit 100
 fi
 
-echo "$AMI_ID_DR"
+echo "$AMI_ID_ORACLE"
 exit 0
