@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$HANA_SID" ]; then
+if [ -z "$ORACLE_SID" ]; then
     echo "AD0"
     exit 0
 fi
 
-echo "$HANA_SID"
+echo "$ORACLE_SID"
 exit 0
