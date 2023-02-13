@@ -42,7 +42,7 @@ pipeline {
         HANA_SID = credentials("HANA_SID")
 
         // Credentials to CD in and out
-        TERRAFORM_FOLDER_NAME="terraform-aws-sap-netweaver-on-hana"
+        TERRAFORM_FOLDER_NAME="terraform-aws-sap-netweaver-on-oracle"
     }
 
     stages {
@@ -52,7 +52,7 @@ pipeline {
                     // -------------------------------------------------
                     // Check credentials
                     // -------------------------------------------------
-                    env.STAGES_FOLDER="./jenkins-pipelines/sap-pipeline-destroy-hana-pas-ascs/stages"
+                    env.STAGES_FOLDER="./jenkins-pipelines/sap-pipeline-destroy-oracle-pas-ascs/stages"
                     env.PREPARE_FOLDER=STAGES_FOLDER+"/prepare"
                     env.DEPENDENCIES_FOLDER=PREPARE_FOLDER+"/dependencies"
                     env.GLOBAL_VARS_PATH=PREPARE_FOLDER+"/check_global_variables"
@@ -131,7 +131,7 @@ pipeline {
                     // Terraform infrastructure
                     sh '''
                         rm -rf $TERRAFORM_FOLDER_NAME
-                        git clone https://github.com/suhas2905/terraform-aws-sap-netweaver-on-hana.git
+                        git clone https://github.com/suhas2905/terraform-aws-sap-netweaver-on-oracle.git
                         
                         $STAGES_FOLDER/destroy_env/run_terraform.sh
                         if [ $? -gt 0 ]; then
