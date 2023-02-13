@@ -49,7 +49,7 @@ pipeline {
         PRODUCT_ID_PAS = credentials("PRODUCT_ID_PAS")
 
         // Credentials to CD in and out
-        TERRAFORM_FOLDER_NAME="terraform-aws-sap-netweaver-on-hana"
+        TERRAFORM_FOLDER_NAME="terraform-aws-sap-netweaver-on-oracle"
         INSTALL_BACKINT = credentials("INSTALL_BACKINT")
     }
 
