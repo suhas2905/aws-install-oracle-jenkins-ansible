@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$HANA_INSTANCE_TYPE" ]; then
+if [ -z "$ORACLE_INSTANCE_TYPE" ]; then
     echo "r5.4xlarge"
     exit 0
 fi
 
-echo "$HANA_INSTANCE_TYPE"
+echo "$ORACLE_INSTANCE_TYPE"
 exit 0
