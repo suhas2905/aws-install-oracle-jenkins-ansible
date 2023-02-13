@@ -27,6 +27,7 @@ pipeline {
         SECURITY_GROUP_ID = credentials("SECURITY_GROUP_ID")
         ENABLE_HA = credentials("ENABLE_HA")
         AMI_ID = credentials("AMI_ID")
+        AMI_ID_ORACLE = credentials("AMI_ID_ORACLE")
         KMS_KEY_ARN = credentials("KMS_KEY_ARN")
         APPLICATION_CODE = credentials("APPLICATION_CODE")
         APPLICATION_NAME = credentials("APPLICATION_NAME")
