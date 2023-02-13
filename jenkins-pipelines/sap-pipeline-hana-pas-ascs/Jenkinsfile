@@ -36,7 +36,7 @@ pipeline {
         
         // Credentials for installation
         S3_ROOT_FOLDER_INSTALL_FILES = credentials("S3_ROOT_FOLDER_INSTALL_FILES")
-        HANA_INSTANCE_NUMBER = credentials("HANA_INSTANCE_NUMBER")
+        ORACLE_INSTANCE_NUMBER = credentials("ORACLE_INSTANCE_NUMBER")
         ASCS_INSTANCE_NUMBER = credentials("ASCS_INSTANCE_NUMBER")
         ERS_INSTANCE_NUMBER = credentials("ERS_INSTANCE_NUMBER")
         PAS_INSTANCE_NUMBER = credentials("PAS_INSTANCE_NUMBER")
