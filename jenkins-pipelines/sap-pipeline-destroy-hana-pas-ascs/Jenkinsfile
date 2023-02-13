@@ -19,7 +19,7 @@ pipeline {
         // Credentials for Terraform
         PRIVATE_DNS_ZONE_NAME = credentials("PRIVATE_DNS_ZONE_NAME")
         EC2_INSTANCES_NAME_PREFIX = credentials("EC2_INSTANCES_NAME_PREFIX")
-        HANA_INSTANCE_TYPE = credentials("HANA_INSTANCE_TYPE")
+        ORACLE_INSTANCE_TYPE = credentials("ORACLE_INSTANCE_TYPE")
         ASCS_INSTANCE_TYPE = credentials("ASCS_INSTANCE_TYPE")
         PAS_INSTANCE_TYPE = credentials("PAS_INSTANCE_TYPE")
         VPC_ID = credentials("VPC_ID")
@@ -34,12 +34,12 @@ pipeline {
         
         // Credentials for installation
         S3_ROOT_FOLDER_INSTALL_FILES = credentials("S3_ROOT_FOLDER_INSTALL_FILES")
-        HANA_INSTANCE_NUMBER = credentials("HANA_INSTANCE_NUMBER")
+        ORACLE_INSTANCE_NUMBER = credentials("ORACLE_INSTANCE_NUMBER")
         ASCS_INSTANCE_NUMBER = credentials("ASCS_INSTANCE_NUMBER")
         PAS_INSTANCE_NUMBER = credentials("PAS_INSTANCE_NUMBER")
         MASTER_PASSWORD = credentials("MASTER_PASSWORD")
         SAP_SID = credentials("SAP_SID")
-        HANA_SID = credentials("HANA_SID")
+        ORACLE_SID = credentials("ORACLE_SID")
 
         // Credentials to CD in and out
         TERRAFORM_FOLDER_NAME="terraform-aws-sap-netweaver-on-oracle"
@@ -71,8 +71,8 @@ pipeline {
                     env.EC2_INSTANCES_NAME_PREFIX_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_EC2_INSTANCES_NAME_PREFIX.sh', returnStdout: true).trim()
                     env.PAS_INSTANCES_NAME_CHKD = "$EC2_INSTANCES_NAME_PREFIX_CHKD"+"-pas"
                     env.ASCS_INSTANCES_NAME_CHKD = "$EC2_INSTANCES_NAME_PREFIX_CHKD"+"-ascs"
-                    env.HANA_INSTANCES_NAME_CHKD = "$EC2_INSTANCES_NAME_PREFIX_CHKD"+"-hana"
-                    env.HANA_INSTANCE_TYPE_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_EC2_INSTANCE_TYPE_HANA.sh', returnStdout: true).trim()
+                    env.ORACLE_INSTANCES_NAME_CHKD = "$EC2_INSTANCES_NAME_PREFIX_CHKD"+"-oracle"
+                    env.ORACLE_INSTANCE_TYPE_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_EC2_INSTANCE_TYPE_ORACLE.sh', returnStdout: true).trim()
                     env.ASCS_INSTANCE_TYPE_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_EC2_INSTANCE_TYPE_ASCS.sh', returnStdout: true).trim()
                     env.PAS_INSTANCE_TYPE_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_EC2_INSTANCE_TYPE_PAS.sh', returnStdout: true).trim()
                     env.SUBNET_IDS_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_SUBNET_IDS.sh', returnStdout: true).trim()
@@ -87,12 +87,12 @@ pipeline {
                     
                     // Credentials for installation
                     env.S3_ROOT_FOLDER_INSTALL_FILES_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_S3_ROOT_FOLDER_INSTALL_FILES.sh', returnStdout: true).trim()
-                    env.HANA_INSTANCE_NUMBER_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_INSTANCE_NUMBER_HANA.sh', returnStdout: true).trim()
+                    env.ORACLE_INSTANCE_NUMBER_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_INSTANCE_NUMBER_ORACLE.sh', returnStdout: true).trim()
                     env.ASCS_INSTANCE_NUMBER_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_INSTANCE_NUMBER_ASCS.sh', returnStdout: true).trim()
                     env.PAS_INSTANCE_NUMBER_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_INSTANCE_NUMBER_PAS.sh', returnStdout: true).trim()
                     env.MASTER_PASSWORD_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_MASTER_PASSWORD.sh', returnStdout: true).trim()
                     env.SAP_SID_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_SID_SAP.sh', returnStdout: true).trim()
-                    env.HANA_SID_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_SID_HANA.sh', returnStdout: true).trim()
+                    env.ORACLE_SID_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_SID_ORACLE.sh', returnStdout: true).trim()
                     env.PRODUCT_ID_ASCS_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_PRODUCT_ID_ASCS.sh', returnStdout: true).trim()
                     env.PRODUCT_ID_PAS_DB_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_PRODUCT_ID_PAS_DB.sh', returnStdout: true).trim()
                     env.PRODUCT_ID_PAS_CHKD = sh(script: GLOBAL_VARS_PATH+'/check_PRODUCT_ID_PAS.sh', returnStdout: true).trim()
