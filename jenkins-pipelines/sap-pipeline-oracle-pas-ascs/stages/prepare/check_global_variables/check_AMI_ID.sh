@@ -13,4 +13,3 @@ fi
 
 echo "$AMI_ID"
 exit 0
-

@@ -12,4 +12,4 @@ if [ -z "$PRODUCT_ID_PAS" ]; then
 fi
 
 echo "$PRODUCT_ID_PAS"
-exit 0
+exit 0n

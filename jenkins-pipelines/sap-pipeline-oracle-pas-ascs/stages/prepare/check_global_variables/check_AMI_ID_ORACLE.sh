@@ -13,3 +13,4 @@ fi
 
 echo "$AMI_ID_ORACLE"
 exit 0
+
