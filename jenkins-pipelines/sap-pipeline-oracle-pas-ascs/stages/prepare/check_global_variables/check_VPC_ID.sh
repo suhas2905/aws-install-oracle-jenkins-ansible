@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
-    exit 0
+if [ -z "$VPC_ID" ]; then
+    echo "Invalid VPC_ID. It cannot be empty. Go to https://sa-east-1.console.aws.amazon.com/vpc/home?region=sa-east-1#vpcs: and select one valid VPC"
+    exit 100
 fi
 
-echo "$AWS_REGION"
+echo "$VPC_ID"
 exit 0

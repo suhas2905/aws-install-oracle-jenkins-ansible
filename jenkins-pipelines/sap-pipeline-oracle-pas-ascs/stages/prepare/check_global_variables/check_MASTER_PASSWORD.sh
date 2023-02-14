@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
-    exit 0
+if [ -z "$MASTER_PASSWORD" ]; then
+    echo "Invalid Master Password. It cannot be empty. Choose a password and try again"
+    exit 100
 fi
 
-echo "$AWS_REGION"
+echo "$MASTER_PASSWORD"
 exit 0

@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$PAS_INSTANCE_TYPE" ]; then
+    echo "m5.xlarge"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$PAS_INSTANCE_TYPE"
 exit 0

@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$SAP_SID" ]; then
+    echo "AD0"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$SAP_SID"
 exit 0

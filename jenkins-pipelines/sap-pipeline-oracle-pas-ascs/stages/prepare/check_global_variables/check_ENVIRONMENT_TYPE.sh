@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$ENVIRONMENT_TYPE" ]; then
+    echo "dev"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$ENVIRONMENT_TYPE"
 exit 0

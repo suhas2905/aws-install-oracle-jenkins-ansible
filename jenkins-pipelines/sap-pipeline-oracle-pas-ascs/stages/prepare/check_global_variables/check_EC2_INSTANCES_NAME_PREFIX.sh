@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$EC2_INSTANCES_NAME_PREFIX" ]; then
+    echo "demo"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$EC2_INSTANCES_NAME_PREFIX"
 exit 0

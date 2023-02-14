@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$ENABLE_HA" ]; then
+    echo "true"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$ENABLE_HA"
 exit 0

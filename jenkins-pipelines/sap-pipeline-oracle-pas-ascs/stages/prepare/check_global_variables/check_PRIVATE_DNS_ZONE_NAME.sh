@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
-    exit 0
+if [ -z "$PRIVATE_DNS_ZONE_NAME" ]; then
+    echo "Invalid private DNS Zone name. It cannot be empty. Go to https://console.aws.amazon.com/route53/v2/home#Dashboard and copy a valid Route53"
+    exit 100
 fi
 
-echo "$AWS_REGION"
+echo "$PRIVATE_DNS_ZONE_NAME"
 exit 0

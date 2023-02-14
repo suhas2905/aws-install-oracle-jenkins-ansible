@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
-    exit 0
+if [ -z "$SECURITY_GROUP_ID" ]; then
+    echo "Invalid Security Group ID. It cannot be empty. Go to https://sa-east-1.console.aws.amazon.com/ec2/v2/home?region=sa-east-1#SecurityGroups: and select a valid group"
+    exit 100
 fi
 
-echo "$AWS_REGION"
+echo "$SECURITY_GROUP_ID"
 exit 0

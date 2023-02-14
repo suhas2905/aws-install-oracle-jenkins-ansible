@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$PRODUCT_ID_PAS_DB" ]; then
+    echo "NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$PRODUCT_ID_PAS_DB"
 exit 0

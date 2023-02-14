@@ -6,10 +6,10 @@
 # ------------------------------------------------------------------
 # Check if the variable is present. If not, send back default value
 # ------------------------------------------------------------------
-if [ -z "$AWS_REGION" ]; then
-    echo "us-east-1"
+if [ -z "$ERS_INSTANCE_NUMBER" ]; then
+    echo "10"
     exit 0
 fi
 
-echo "$AWS_REGION"
+echo "$ERS_INSTANCE_NUMBER"
 exit 0
