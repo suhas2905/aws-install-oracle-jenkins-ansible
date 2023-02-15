@@ -223,7 +223,7 @@ jobs:
             source {
               git {
                 id('destroySAP3modules')
-                remote('https://github.com/suhas2905/aws-install-oracle-jenkins-ansible.gitt')
+                remote('https://github.com/suhas2905/aws-install-oracle-jenkins-ansible.git')
               }
             }
             strategy {
