@@ -25,7 +25,7 @@ credentials:
             scope: GLOBAL
             id: "AMI_ID_ORACLE"
             secret: ""
-            description: "(Required) The AMI ID to be used as instances' images. Example: ami-05b28f0a03737eaf7"
+            description: "(Required) The AMI ID of oracle to be used as instances' images. Example: ami-05b28f0a03737eaf7"
         - string:
             scope: GLOBAL
             id: "KMS_KEY_ARN"
