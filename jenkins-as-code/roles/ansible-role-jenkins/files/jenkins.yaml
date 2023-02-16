@@ -215,7 +215,7 @@ jobs:
       multibranchPipelineJob('SAP Oracle+ASCS+PAS 3 Instances/Destroy env') {
         factory {
           workflowBranchProjectFactory {
-            scriptPath('jenkins-pipelines/sap-pipeline-oracle-pas-ascs/Jenkinsfile')
+            scriptPath('jenkins-pipelines/sap-pipeline-destroy-oracle-pas-ascs/Jenkinsfile')
           }
         }
         branchSources {
