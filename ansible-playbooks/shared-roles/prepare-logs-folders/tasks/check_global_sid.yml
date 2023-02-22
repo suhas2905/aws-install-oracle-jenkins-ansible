@@ -15,6 +15,6 @@
   set_fact: GLOBAL_SAP_SID="{{ GLOBAL_ERS_SID }}"
   when: GLOBAL_ERS_SID is defined and ERS_SID is defined
 
-- name: Set Global SAP SID for HANA
-  set_fact: GLOBAL_SAP_SID="{{ GLOBAL_HANA_SID }}"
-  when: GLOBAL_HANA_SID is defined
+- name: Set Global SAP SID for ORACLE
+  set_fact: GLOBAL_SAP_SID="{{ GLOBAL_ORACLE_SID }}"
+  when: GLOBAL_ORACLE_SID is defined
