@@ -3,7 +3,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-post_install_playbook_dir="$PWD/ansible-playbooks/aws-sap-ascs-hana-pas-post-install"
+post_install_playbook_dir="$PWD/ansible-playbooks/aws-sap-ascs-oracle-pas-post-install"
 export ANSIBLE_DIR=$post_install_playbook_dir
 
 # ------------------------------------------------------------------
