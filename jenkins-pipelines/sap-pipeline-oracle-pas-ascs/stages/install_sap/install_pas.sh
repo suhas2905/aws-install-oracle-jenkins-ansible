@@ -8,9 +8,9 @@ ansiblePASDir="$PWD/ansible-playbooks/aws-sap-pas"
 # ------------------------------------------------------------------
 # Grab data from Terraform
 # ------------------------------------------------------------------
-hana_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip | jq -r '.[0]')
-if [ -z "$hana_private_ip" ]; then
-    echo "No Hana instance private IP was found. Please check Terraform step"
+oracle_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip | jq -r '.[0]')
+if [ -z "$oracle_private_ip" ]; then
+    echo "No Oracle instance private IP was found. Please check Terraform step"
     exit 100
 fi
 
@@ -32,18 +32,18 @@ if [ -z "$efs_id" ]; then
     exit 103
 fi
 
-hana_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-if [ -z "$hana_private_ip" ]; then
-    echo "No Hana instance IPs were found. Please check Terraform step"
+oracle_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+if [ -z "$oracle_private_ip" ]; then
+    echo "No Oracle instance IPs were found. Please check Terraform step"
     exit 100
 fi
-export HANA_HOSTS_IPS=$hana_private_ip
+export ORACLE_HOSTS_IPS=$oracle_private_ip
 
-private_ip_values=$(echo $HANA_HOSTS_IPS | sed "s/\[/\ /g" | sed "s/\]/\ /g" | sed "s/\,/\ /g")
+private_ip_values=$(echo $ORACLE_HOSTS_IPS | sed "s/\[/\ /g" | sed "s/\]/\ /g" | sed "s/\,/\ /g")
 eval "private_ip_array=($private_ip_values)"
 
-HANA_PRIMARY_PRIVATE_IP=${private_ip_array[0]}
-HANA_SECONDARY_PRIVATE_IP=${private_ip_array[1]}
+ORACLE_PRIMARY_PRIVATE_IP=${private_ip_array[0]}
+ORACLE_SECONDARY_PRIVATE_IP=${private_ip_array[1]}
 
 # ------------------------------------------------------------------
 # Change host destination on hosts.yml file
