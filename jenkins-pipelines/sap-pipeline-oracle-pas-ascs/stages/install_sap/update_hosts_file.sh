@@ -16,8 +16,8 @@ if [ -z "$SSH_KEYPAIR_FILE_CHKD" ]; then
     exit 100
 fi
 
-if [ -z "$HANA_HOSTS_IPS" ]; then
-    echo "No Hosts IPs were received as input params"
+if [ -z "$ORACLE_HOSTS_IPS" ]; then
+    echo "No ORACLE Hosts IPs were received as input params"
     exit 100
 fi
 
@@ -36,11 +36,11 @@ if [ -z "$PAS_PRIVATE_IP" ]; then
     exit 100
 fi
 
-private_ips_values=$(echo $HANA_HOSTS_IPS | sed "s/\[/\ /g" | sed "s/\]/\ /g" | sed "s/\,/\ /g")
+private_ips_values=$(echo $ORACLE_HOSTS_IPS | sed "s/\[/\ /g" | sed "s/\]/\ /g" | sed "s/\,/\ /g")
 eval "private_ips_array=($private_ips_values)"
 
-HANA_PRIMARY_PRIVATE_IP=${private_ips_array[0]}
-HANA_SECONDARY_PRIVATE_IP=${private_ips_array[1]}
+ORACLE_PRIMARY_PRIVATE_IP=${private_ips_array[0]}
+ORACLE_SECONDARY_PRIVATE_IP=${private_ips_array[1]}
 
 # ------------------------------------------------------------------
 # Create hosts_runtime.yml
@@ -48,8 +48,8 @@ HANA_SECONDARY_PRIVATE_IP=${private_ips_array[1]}
 cp "$ANSIBLE_DIR/hosts.yaml" "$ANSIBLE_DIR/hosts_runtime.yaml"
 hostsFile="$ANSIBLE_DIR/hosts_runtime.yaml"
 
-sed -i "s/HANA_PRIM_HOST_NAME_TO_APPLY/$HANA_PRIMARY_PRIVATE_IP/g" $hostsFile
-sed -i "s/HANA_SEC_HOST_NAME_TO_APPLY/$HANA_SECONDARY_PRIVATE_IP/g" $hostsFile
+sed -i "s/ORACLE_PRIM_HOST_NAME_TO_APPLY/$ORACLE_PRIMARY_PRIVATE_IP/g" $hostsFile
+sed -i "s/ORACLE_SEC_HOST_NAME_TO_APPLY/$ORACLE_SECONDARY_PRIVATE_IP/g" $hostsFile
 sed -i "s/ASCS_HOST_NAME_TO_APPLY/$ASCS_PRIVATE_IP/g" $hostsFile
 sed -i "s/ERS_HOST_NAME_TO_APPLY/$ERS_PRIVATE_IP/g" $hostsFile
 sed -i "s/PAS_HOST_NAME_TO_APPLY/$PAS_PRIVATE_IP/g" $hostsFile
