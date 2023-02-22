@@ -3,8 +3,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-ansibleHanaDir="$PWD/ansible-playbooks/aws-sap-hana"
-export ANSIBLE_DIR=$ansibleHanaDir
+ansibleOracleDir="$PWD/ansible-playbooks/aws-sap-oracle"
+export ANSIBLE_DIR=$ansibleOracleDir
 
 # ------------------------------------------------------------------
 # Grab data from Terraform
@@ -16,27 +16,27 @@ export ANSIBLE_DIR=$ansibleHanaDir
 #fi
 #export HOSTS_IPS=$hana_public_ips
 
-hana_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-if [ -z "$hana_private_ips" ]; then
-    echo "No Hana instance IPs were found. Please check Terraform step"
+oracle_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+if [ -z "$oracle_private_ips" ]; then
+    echo "No Oracle instance IPs were found. Please check Terraform step"
     exit 100
 fi
-export HOSTS_IPS=$hana_private_ips
+export HOSTS_IPS=$oracle_private_ips
 
 if [[ "$ENABLE_HA_CHKD" == "true" ]]; then
-    hana_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-    export PRIVATE_IPS_LIST=$hana_private_ips
-    export HOSTS_IPS=$hana_private_ips
+    oracle_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+    export PRIVATE_IPS_LIST=$oracle_private_ips
+    export HOSTS_IPS=$oracle_private_ips
 
-    hana_overlay_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_overlay_ip)
-    if [ -z "$hana_overlay_ip" ]; then
-        echo "No overlay IP was found for Hana. Please check Terraform step"
+    oracle_overlay_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_overlay_ip)
+    if [ -z "$oracle_overlay_ip" ]; then
+        echo "No overlay IP was found for Oracle. Please check Terraform step"
         exit 104
     fi
 
-    hana_overlay_route_table_id=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_overlay_ip_route_table_id)
-    if [ -z "$hana_overlay_route_table_id" ]; then
-        echo "No ID for the overlay IP route table was found for Hana. Please check Terraform step"
+    oracle_overlay_route_table_id=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_overlay_ip_route_table_id)
+    if [ -z "$oracle_overlay_route_table_id" ]; then
+        echo "No ID for the overlay IP route table was found for Oracle. Please check Terraform step"
         exit 105
     fi
 fi
