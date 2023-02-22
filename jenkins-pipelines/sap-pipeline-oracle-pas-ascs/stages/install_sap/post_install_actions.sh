@@ -33,12 +33,12 @@ export ANSIBLE_DIR=$post_install_playbook_dir
 #    exit 102
 #fi
 
-hana_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-if [ -z "$hana_private_ip" ]; then
-    echo "No Hana instance private IP was found. Please check Terraform step"
+oracle_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+if [ -z "$oracle_private_ip" ]; then
+    echo "No Oracle instance private IP was found. Please check Terraform step"
     exit 100
 fi
-export HANA_HOSTS_IPS=$hana_private_ip
+export ORACLE_HOSTS_IPS=$oracle_private_ip
 
 export ASCS_PRIVATE_IP=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json ascs_instance_private_ip | jq -r '.[0]')
 if [ -z "$ASCS_PRIVATE_IP" ]; then
@@ -62,7 +62,7 @@ fi
 # Create hosts file
 # ------------------------------------------------------------------
 # Create hosts_runtime.yml file
-FOLDER_PATH="./jenkins-pipelines/sap-pipeline-hana-pas-ascs/stages/install_sap"
+FOLDER_PATH="./jenkins-pipelines/sap-pipeline-oracle-pas-ascs/stages/install_sap"
 $FOLDER_PATH/update_hosts_file.sh
 if [ $? -ne 0 ]; then
     echo "There was an error creating the hosts file. Please check again"
