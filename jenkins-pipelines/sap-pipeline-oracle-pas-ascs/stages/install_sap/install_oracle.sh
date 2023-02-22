@@ -14,27 +14,27 @@ export ANSIBLE_DIR=$ansibleOracleDir
 #    echo "No Hana instance IPs were found. Please check Terraform step"
 #    exit 100
 #fi
-hana_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-if [ -z "$hana_private_ips" ]; then
-    echo "No Hana instance IPs were found. Please check Terraform step"
+oracle_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+if [ -z "$oracle_private_ips" ]; then
+    echo "No Oracle instance IPs were found. Please check Terraform step"
    exit 100
 fi
-export HOSTS_IPS=$hana_private_ips
+export HOSTS_IPS=$oracle_private_ips
 
 if [[ "$ENABLE_HA_CHKD" == "true" ]]; then
-    hana_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip)
-    export PRIVATE_IPS_LIST=$hana_private_ips
+    oracle_private_ips=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip)
+    export PRIVATE_IPS_LIST=$oracle_private_ips
     
 
-    hana_overlay_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_overlay_ip)
-    if [ -z "$hana_overlay_ip" ]; then
-        echo "No overlay IP was found for Hana. Please check Terraform step"
+    oracle_overlay_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_overlay_ip)
+    if [ -z "$oracle_overlay_ip" ]; then
+        echo "No overlay IP was found for Oracle. Please check Terraform step"
         exit 104
     fi
 
-    hana_overlay_route_table_id=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_overlay_ip_route_table_id)
-    if [ -z "$hana_overlay_route_table_id" ]; then
-        echo "No ID for the overlay IP route table was found for Hana. Please check Terraform step"
+    oracle_overlay_route_table_id=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_overlay_ip_route_table_id)
+    if [ -z "$oracle_overlay_route_table_id" ]; then
+        echo "No ID for the overlay IP route table was found for Oracle. Please check Terraform step"
         exit 105
     fi
 fi
@@ -79,11 +79,11 @@ touch $VAR_FILE_FULL_PATH
 # Add variables to VAR_FILE_FULL_PATH
 # ------------------------------------------------------------------
 echo "---" >> $VAR_FILE_FULL_PATH
-echo "EC2_HOSTNAME: $HANA_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
+echo "EC2_HOSTNAME: $ORACLE_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "PRIVATE_DNS_ZONE: $PRIVATE_DNS_ZONE_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "MASTER_PASSWORD: $MASTER_PASSWORD_CHKD" >> $VAR_FILE_FULL_PATH
-echo "HANA_SID: $HANA_SID_CHKD" >> $VAR_FILE_FULL_PATH
-echo "HANA_INSTANCE_NUMBER: \"$HANA_INSTANCE_NUMBER_CHKD\"" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_SID: $ORACLE_SID_CHKD" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_INSTANCE_NUMBER: \"$ORACLE_INSTANCE_NUMBER_CHKD\"" >> $VAR_FILE_FULL_PATH
 echo "EFS_ID: $efs_id" >> $VAR_FILE_FULL_PATH
 echo "S3_BUCKET_MEDIA_FILES: $S3_ROOT_FOLDER_INSTALL_FILES_CHKD" >> $VAR_FILE_FULL_PATH
 echo "ASCS_PRIVATE_IP: $ascs_private_ip" >> $VAR_FILE_FULL_PATH
@@ -95,8 +95,8 @@ echo "ENABLE_HA: $ENABLE_HA_CHKD" >> $VAR_FILE_FULL_PATH
 echo "AWS_CLI_PROFILE: $CLI_PROFILE_CHKD" >> $VAR_FILE_FULL_PATH
 echo "BUCKET_TO_BACKUP: $BUCKET_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "AWS_REGION: $AWS_REGION_CHKD" >> $VAR_FILE_FULL_PATH
-echo "OVERLAY_IP: $hana_overlay_ip" >> $VAR_FILE_FULL_PATH
-echo "OVERLAY_IP_ROUTE_TABLE_ID: $hana_overlay_route_table_id" >> $VAR_FILE_FULL_PATH
+echo "OVERLAY_IP: $oracle_overlay_ip" >> $VAR_FILE_FULL_PATH
+echo "OVERLAY_IP_ROUTE_TABLE_ID: $oracle_overlay_route_table_id" >> $VAR_FILE_FULL_PATH
 
 # ------------------------------------------------------------------
 # Parse private IPs for HA
@@ -115,7 +115,7 @@ fi
 ANSIBLE_HOST_KEY_CHECKING=False
 ANSIBLE_BECOME_EXE="sudo su -"
 
-ansible-playbook $ansibleOracleDir/install_hana.yml \
+ansible-playbook $ansibleOracleDir/install_oracle.yml \
                     --inventory-file "$hostsFile" \
                     --extra-vars "@$VAR_FILE_FULL_PATH"
 
