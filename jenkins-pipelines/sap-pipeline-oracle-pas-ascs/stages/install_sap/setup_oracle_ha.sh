@@ -80,11 +80,11 @@ touch $VAR_FILE_FULL_PATH
 # Add variables to VAR_FILE_FULL_PATH
 # ------------------------------------------------------------------
 echo "---" >> $VAR_FILE_FULL_PATH
-echo "EC2_HOSTNAME: $HANA_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
+echo "EC2_HOSTNAME: $ORACLE_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "PRIVATE_DNS_ZONE: $PRIVATE_DNS_ZONE_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "MASTER_PASSWORD: $MASTER_PASSWORD_CHKD" >> $VAR_FILE_FULL_PATH
-echo "HANA_SID: $HANA_SID_CHKD" >> $VAR_FILE_FULL_PATH
-echo "HANA_INSTANCE_NUMBER: \"$HANA_INSTANCE_NUMBER_CHKD\"" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_SID: $ORACLE_SID_CHKD" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_INSTANCE_NUMBER: \"$ORACLE_INSTANCE_NUMBER_CHKD\"" >> $VAR_FILE_FULL_PATH
 echo "EFS_ID: $efs_id" >> $VAR_FILE_FULL_PATH
 echo "S3_BUCKET_MEDIA_FILES: $S3_ROOT_FOLDER_INSTALL_FILES_CHKD" >> $VAR_FILE_FULL_PATH
 echo "ASCS_PRIVATE_IP: $ascs_private_ip" >> $VAR_FILE_FULL_PATH
@@ -96,8 +96,8 @@ echo "ENABLE_HA: $ENABLE_HA_CHKD" >> $VAR_FILE_FULL_PATH
 echo "AWS_CLI_PROFILE: $CLI_PROFILE_CHKD" >> $VAR_FILE_FULL_PATH
 echo "BUCKET_TO_BACKUP: $BUCKET_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "AWS_REGION: $AWS_REGION_CHKD" >> $VAR_FILE_FULL_PATH
-echo "OVERLAY_IP: $hana_overlay_ip" >> $VAR_FILE_FULL_PATH
-echo "OVERLAY_IP_ROUTE_TABLE_ID: $hana_overlay_route_table_id" >> $VAR_FILE_FULL_PATH
+echo "OVERLAY_IP: $oracle_overlay_ip" >> $VAR_FILE_FULL_PATH
+echo "OVERLAY_IP_ROUTE_TABLE_ID: $oracle_overlay_route_table_id" >> $VAR_FILE_FULL_PATH
 
 # ------------------------------------------------------------------
 # Parse private IPs for HA
@@ -116,7 +116,7 @@ fi
 ANSIBLE_HOST_KEY_CHECKING=False
 ANSIBLE_BECOME_EXE="sudo su -"
 
-ansible-playbook $ansibleHanaDir/setup_hana_ha.yml \
+ansible-playbook $ansibleOracleDir/setup_oracle_ha.yml \
                     --inventory-file "$hostsFile" \
                     --extra-vars "@$VAR_FILE_FULL_PATH"
 
