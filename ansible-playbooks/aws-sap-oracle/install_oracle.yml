@@ -14,8 +14,8 @@
           - EC2_HOSTNAME
           - PRIVATE_DNS_ZONE
           - MASTER_PASSWORD
-          - HANA_SID
-          - HANA_INSTANCE_NUMBER
+          - ORACLE_SID
+          - ORACLE_INSTANCE_NUMBER
           - EFS_ID
           - S3_BUCKET_MEDIA_FILES
           - ENABLE_HA
