@@ -9,9 +9,9 @@ export ANSIBLE_DIR=$ansibleASCSDir
 # ------------------------------------------------------------------
 # Grab data from Terraform
 # ------------------------------------------------------------------
-hana_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json hana_instance_private_ip | jq -r '.[0]')
-if [ -z "$hana_private_ip" ]; then
-    echo "No Hana instance private IP was found. Please check Terraform step"
+oracle_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json oracle_instance_private_ip | jq -r '.[0]')
+if [ -z "$oracle_private_ip" ]; then
+    echo "No Oracle instance private IP was found. Please check Terraform step"
     exit 100
 fi
 
@@ -72,7 +72,7 @@ fi
 # Change host destination on hosts.yml file
 # ------------------------------------------------------------------
 # Create hosts_runtime.yml file
-FOLDER_PATH="./jenkins-pipelines/sap-pipeline-hana-pas-ascs/stages/install_sap"
+FOLDER_PATH="./jenkins-pipelines/sap-pipeline-oracle-pas-ascs/stages/install_sap"
 $FOLDER_PATH/create_hosts_file.sh
 if [ $? -ne 0 ]; then
     echo "There was an error creating the hosts file. Please check again"
@@ -93,8 +93,8 @@ echo "EC2_HOSTNAME: $ASCS_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "PRIVATE_DNS_ZONE: $PRIVATE_DNS_ZONE_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "MASTER_PASSWORD: $MASTER_PASSWORD_CHKD" >> $VAR_FILE_FULL_PATH
 echo "EFS_ID: $efs_id" >> $VAR_FILE_FULL_PATH
-echo "HANA_PRIVATE_IP: $hana_private_ip" >> $VAR_FILE_FULL_PATH
-echo "HANA_HOSTNAME: $HANA_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_PRIVATE_IP: $oracle_private_ip" >> $VAR_FILE_FULL_PATH
+echo "ORACLE_HOSTNAME: $ORACLE_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "S3_BUCKET_MEDIA_FILES: $S3_ROOT_FOLDER_INSTALL_FILES_CHKD" >> $VAR_FILE_FULL_PATH
 echo "ENABLE_HA: $ENABLE_HA_CHKD" >> $VAR_FILE_FULL_PATH
 echo "PAS_PRIVATE_IP: $pas_private_ip" >> $VAR_FILE_FULL_PATH
