@@ -3,8 +3,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-ansibleHanaDir="$PWD/ansible-playbooks/aws-sap-hana"
-export ANSIBLE_DIR=$ansibleHanaDir
+ansibleOracleDir="$PWD/ansible-playbooks/aws-sap-oracle"
+export ANSIBLE_DIR=$ansibleOracleDir
 
 # ------------------------------------------------------------------
 # Grab data from Terraform
@@ -62,16 +62,16 @@ fi
 # Create hosts file
 # ------------------------------------------------------------------
 # Create hosts_runtime.yml file
-FOLDER_PATH="./jenkins-pipelines/sap-pipeline-hana-pas-ascs/stages/install_sap"
+FOLDER_PATH="./jenkins-pipelines/sap-pipeline-oracle-pas-ascs/stages/install_sap"
 $FOLDER_PATH/create_hosts_file.sh
 if [ $? -ne 0 ]; then
     echo "There was an error creating the hosts file. Please check again"
     exit 104
 fi
 
-hostsFile="$ansibleHanaDir/hosts_runtime.yml"
+hostsFile="$ansibleOracleDir/hosts_runtime.yml"
 
-export VAR_FILE_FULL_PATH="$ansibleHanaDir/var_file.yaml"
+export VAR_FILE_FULL_PATH="$ansibleOracleDir/var_file.yaml"
 rm $VAR_FILE_FULL_PATH 2> /dev/null
 touch $VAR_FILE_FULL_PATH
 
@@ -115,7 +115,7 @@ fi
 ANSIBLE_HOST_KEY_CHECKING=False
 ANSIBLE_BECOME_EXE="sudo su -"
 
-ansible-playbook $ansibleHanaDir/install_hana.yml \
+ansible-playbook $ansibleOracleDir/install_hana.yml \
                     --inventory-file "$hostsFile" \
                     --extra-vars "@$VAR_FILE_FULL_PATH"
 
