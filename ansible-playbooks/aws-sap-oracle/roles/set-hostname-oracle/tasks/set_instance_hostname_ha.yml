@@ -3,8 +3,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-- name: Set Instance hostname HA for Hana
-  include_tasks: set_instance_hostname_ha_hana.yml
+- name: Set Instance hostname HA for Oracle
+  include_tasks: set_instance_hostname_ha_oracle.yml
   when: GLOBAL_ORACLE_SID is defined
 
 - name: Set Instance hostname HA for ASCS/ERS
