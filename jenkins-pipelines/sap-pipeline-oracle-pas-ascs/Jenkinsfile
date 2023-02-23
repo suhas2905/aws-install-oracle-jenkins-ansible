@@ -141,8 +141,14 @@ pipeline {
                         if [ $? -gt 0 ]; then
                             exit 1
                         fi
+                        
+                        $DEPENDENCIES_FOLDER/install_galaxy_dependencies.sh
+                        if [ $? -gt 0 ]; then
+                            exit 1
+                        fi                        
 
                     '''
+                    
 
                     // Check if there's an available bucket on S3 and DynamoDB table to store Terraform states. If not, creates it
                     sh '''
