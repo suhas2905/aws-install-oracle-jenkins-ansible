@@ -41,17 +41,17 @@
     - role: ansible-role-parameters
 
 # RedHat official roles for preparing for SAP Installation
-- name: Prepare host with RedHat certified roles
-  become: true
-  hosts: all
-  roles:
-    - role: sap-preconfigure
-      vars:
-        sap_preconfigure_selinux_state: disabled
-        sap_preconfigure_fail_if_reboot_required: false
-    - role: sap-hana-preconfigure
-      vars:
-        sap_hana_preconfigure_fail_if_reboot_required: false
+#- name: Prepare host with RedHat certified roles
+#  become: true
+#  hosts: all
+#  roles:
+#    - role: sap-preconfigure
+#      vars:
+#        sap_preconfigure_selinux_state: disabled
+#        sap_preconfigure_fail_if_reboot_required: false
+#    - role: sap-hana-preconfigure
+#      vars:
+#        sap_hana_preconfigure_fail_if_reboot_required: false
 
 # Hana installation roles
 - name: Download and Install Hana
