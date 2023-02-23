@@ -49,9 +49,8 @@ rhel_packages:
   - fence-agents-aws
   - resource-agents
   - resource-agents-sap
-  - resource-agents-sap-hana
   - sap-cluster-connector
-
+  - oracle-database-preinstall-19c
 rhel_group_packages:
   - "@Server"
 
