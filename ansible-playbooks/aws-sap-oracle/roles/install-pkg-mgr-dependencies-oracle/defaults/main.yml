@@ -43,7 +43,6 @@ rhel_packages:
   - pcs
   - pacemaker
   - fence-agents-aws
-  - resource-agents
   - resource-agents-sap
   - sap-cluster-connector
   - oracle-database-preinstall-19c
