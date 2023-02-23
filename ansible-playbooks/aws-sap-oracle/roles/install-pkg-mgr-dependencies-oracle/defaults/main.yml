@@ -13,8 +13,6 @@ rhel_packages:
   - gcc
   - libstdc++
   - nvme-cli
-  - tuned-profiles-sap-hana
-  - sapconf
   - libatomic
   - libnsl
   - uuidd
