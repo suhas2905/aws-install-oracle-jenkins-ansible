@@ -5,7 +5,7 @@
 
 - name: Create map for Hana
   include_tasks: add_ha_hostnames_to_map_hana.yml
-  when: GLOBAL_HANA_SID is defined
+  when: GLOBAL_ORACLE_SID is defined
 
 - name: Create map for ASCS/ERS
   include_tasks: add_ha_hostnames_to_map_ascs_ers.yml
