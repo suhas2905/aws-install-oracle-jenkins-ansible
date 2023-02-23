@@ -42,7 +42,6 @@ rhel_packages:
   - corosync
   - pcs
   - pacemaker
-  - fence-agents-aws
   - oracle-database-preinstall-19c
 rhel_group_packages:
   - "@Server"
