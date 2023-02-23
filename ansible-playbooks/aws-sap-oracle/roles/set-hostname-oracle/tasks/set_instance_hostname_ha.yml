@@ -5,7 +5,7 @@
 
 - name: Set Instance hostname HA for Hana
   include_tasks: set_instance_hostname_ha_hana.yml
-  when: GLOBAL_HANA_SID is defined
+  when: GLOBAL_ORACLE_SID is defined
 
 - name: Set Instance hostname HA for ASCS/ERS
   include_tasks: set_instance_hostname_ha_ascs_ers.yml
