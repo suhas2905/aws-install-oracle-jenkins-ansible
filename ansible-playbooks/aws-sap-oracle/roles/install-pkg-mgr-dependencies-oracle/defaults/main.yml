@@ -8,10 +8,10 @@ rhel_packages:
   - python3
   - python2
   - unzip
-  - xfsprogs
-  - autofs
-  - gcc
-  - libstdc++
+#  - xfsprogs
+#  - autofs
+#  - gcc
+#  - libstdc++
   - nvme-cli
   - libatomic
   - libnsl
@@ -23,17 +23,17 @@ rhel_packages:
   - graphviz
   - iptraf-ng
   - krb5-workstation 
-  - libcanberra-gtk2
-  - libibverbs
-  - libicu
-  - libpng12
-  - libssh2
+#  - libcanberra-gtk2
+#  - libibverbs
+#  - libicu
+#  - libpng12
+#  - libssh2
   - lm_sensors
   - numactl
   - PackageKit-gtk3-module
   - xorg-x11-xauth
-  - libaio
-  - libtool-ltdl
+#  - libaio
+#  - libtool-ltdl
   - lvm2
   - nfs-utils
   - sysstat
