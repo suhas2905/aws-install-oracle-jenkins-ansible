@@ -12,7 +12,7 @@ rhel_packages:
 #  - autofs
 #  - gcc
 #  - libstdc++
-  - nvme-cli
+#  - nvme-cli
 #  - libatomic
 #  - libnsl
 #  - uuidd
@@ -34,14 +34,14 @@ rhel_packages:
 #  - xorg-x11-xauth
 #  - libaio
 #  - libtool-ltdl
-  - lvm2
-  - nfs-utils
-  - sysstat
-  - kernel
-  - chrony
-  - corosync
-  - pcs
-  - pacemaker
+#  - lvm2
+#  - nfs-utils
+#  - sysstat
+#  - kernel
+#  - chrony
+#  - corosync
+#  - pcs
+#  - pacemaker
   - oracle-database-preinstall-19c
 rhel_group_packages:
   - "@Server"
