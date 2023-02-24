@@ -34,7 +34,7 @@
     vg: "{{ volume_group_oracle_data1 }}"
     lv: "{{ logical_volume_oracle_data1 }}"
     size: 100%VG
-    opts: "-i {{ volume_names[0] }}"
+    opts: "-i {{ volume_names | count}}"
 
 
 
@@ -49,7 +49,7 @@
     vg: "{{ volume_group_oracle_data2 }}"
     lv: "{{ logical_volume_oracle_data2 }}"
     size: 100%VG
-    opts: "-i {{ volume_names[1] }}"
+    opts: "-i {{ volume_names | count }}"
 
 
 
@@ -65,7 +65,7 @@
     vg: "{{ volume_group_oracle_data3 }}"
     lv: "{{ logical_volume_oracle_data3 }}"
     size: 100%VG
-    opts: "-i {{ volume_names[2] }}"
+    opts: "-i {{ volume_names | count }}"
 
 
 
@@ -81,7 +81,7 @@
     vg: "{{ volume_group_oracle_data4 }}"
     lv: "{{ logical_volume_oracle_data4 }}"
     size: 100%VG
-    opts: "-i {{ volume_names[3] }}"
+    opts: "-i {{ volume_names | count}}"
 
 
 
