@@ -34,7 +34,7 @@
     vg: "{{ volume_group_oracle_data1 }}"
     lv: "{{ logical_volume_oracle_data1 }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count}}"
+    opts: "-i {{ volume_names[0] | count}}"
 
 
 
