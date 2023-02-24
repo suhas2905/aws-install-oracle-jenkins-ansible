@@ -20,27 +20,110 @@
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
 
-- name: Create the physical volumes and volume group
+- name: Create the physical volumes and volume group1
   lvg:
-    vg: "{{ volume_group_hana_data }}"
+    vg: "{{ volume_group_oracle_data1 }}"
     pvs: "{{ volume_names|join(',')}}"
   register: volumes_output
 
-- name: Create the logical volume
+- name: Create the logical volume1
   lvol:
-    vg: "{{ volume_group_hana_data }}"
-    lv: "{{ logical_volume_hana_data }}"
+    vg: "{{ volume_group_oracle_data1 }}"
+    lv: "{{ logical_volume_oracle_data1 }}"
     size: 100%VG
     opts: "-i {{ volume_names | count }}"
 
-- name: Create the filesystem
+
+
+- name: Create the physical volumes and volume group2
+  lvg:
+    vg: "{{ volume_group_oracle_data2 }}"
+    pvs: "{{ volume_names|join(',')}}"
+  register: volumes_output
+
+- name: Create the logical volume2
+  lvol:
+    vg: "{{ volume_group_oracle_data2 }}"
+    lv: "{{ logical_volume_oracle_data2 }}"
+    size: 100%VG
+    opts: "-i {{ volume_names | count }}"
+
+
+
+
+- name: Create the physical volumes and volume group3
+  lvg:
+    vg: "{{ volume_group_oracle_data3 }}"
+    pvs: "{{ volume_names|join(',')}}"
+  register: volumes_output
+
+- name: Create the logical volume3
+  lvol:
+    vg: "{{ volume_group_oracle_data3 }}"
+    lv: "{{ logical_volume_oracle_data3 }}"
+    size: 100%VG
+    opts: "-i {{ volume_names | count }}"
+
+
+
+
+- name: Create the physical volumes and volume group4
+  lvg:
+    vg: "{{ volume_group_oracle_data4 }}"
+    pvs: "{{ volume_names|join(',')}}"
+  register: volumes_output
+
+- name: Create the logical volume4
+  lvol:
+    vg: "{{ volume_group_oracle_data4 }}"
+    lv: "{{ logical_volume_oracle_data4 }}"
+    size: 100%VG
+    opts: "-i {{ volume_names | count }}"
+
+
+
+
+- name: Create the filesystem1
   filesystem:
     fstype: xfs
-    dev: "/dev/{{ volume_group_hana_data }}/{{ logical_volume_hana_data }}"
+    dev: "/dev/{{ volume_group_oracle_data1 }}/{{ logical_volume_oracle_data1 }}"
 
-- name: Register filesystem to /etc/fstab
+- name: Register filesystem to /etc/fstab1
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ volume_group_hana_data }}/{{ logical_volume_hana_data }} {{ hana_data_folder }} xfs defaults 1 2"
+    line: "/dev/{{ volume_group_oracle_data1 }}/{{ logical_volume_oracle_data1 }} {{ oracle_data1_folder }} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem2
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_data2 }}/{{ logical_volume_oracle_data2 }}"
+
+- name: Register filesystem to /etc/fstab2
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_data2 }}/{{ logical_volume_oracle_data2 }} {{ oracle_data2_folder }} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem3
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_data3 }}/{{ logical_volume_oracle_data3 }}"
+
+- name: Register filesystem to /etc/fstab3
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_data3 }}/{{ logical_volume_oracle_data3 }} {{ oracle_data3_folder }} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem4
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_data4 }}/{{ logical_volume_oracle_data4 }}"
+
+- name: Register filesystem to /etc/fstab4
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_data4 }}/{{ logical_volume_oracle_data4 }} {{ oracle_data4_folder }} xfs defaults 1 2"
     state: present
     insertafter: EOF
