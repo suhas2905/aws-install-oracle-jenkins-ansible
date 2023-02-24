@@ -20,7 +20,7 @@
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
 - name: Make a list with stdout found1
-  set_fact: volume_names1="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | second }}"
+  set_fact: volume_names1="{{ volume_name_result.results | [1] | map(attribute='ansible_facts.mount_name') | list }}"
 
 - name: Create the physical volumes and volume group1
   lvg:
