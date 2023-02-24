@@ -26,60 +26,135 @@ efs_folders_to_create:
   - /mnt/efs/trans
 
 folders_to_create:
-  - /hana/shared
-  - /hana/data
-  - /hana/log
-  - /usr/sap/trans
-  - /software
-  - /backup
+  - /oracle
+  - /oracle/{{ GLOBAL_SAP_SID }}/sapdata1
+  - /oracle/{{ GLOBAL_SAP_SID }}/sapdata2
+  - /oracle/{{ GLOBAL_SAP_SID }}/sapdata3
+  - /oracle/{{ GLOBAL_SAP_SID }}/sapdata4
+  - /oracle/{{ GLOBAL_SAP_SID }}/origlogA
+  - /oracle/{{ GLOBAL_SAP_SID }}/origlogA
+  - /oracle/{{ GLOBAL_SAP_SID }}/origlogB
+  - /oracle/{{ GLOBAL_SAP_SID }}/mirrlogA
+  - /oracle/{{ GLOBAL_SAP_SID }}/mirrlogB
+  - /usr/sap
+#  - /hana/shared
+#  - /hana/data
+#  - /hana/log
+# - /usr/sap/trans
+#  - /software
+#  - /backup
+folders_to_create with difrrent permission:
+  - /oracle/{{ GLOBAL_SAP_SID }}
+  - /oracle/{{ GLOBAL_SAP_SID }}/oraarch
+
+
+# Variables for mounting ORACLE disks
+oracle_folder: /oracle
+volume_group_oracle: vg_oracle
+logical_volume_oracle: lv_oracle
+
+oracle_disk_type_pattern:
+  - xvds
+
+# Variables for mounting ORACLE/GLOBAL_SAP_SID disks
+oracle_folder_GLOBAL_SAP_SID: /oracle/{{ GLOBAL_SAP_SID }}
+volume_group_oracle_{{ GLOBAL_SAP_SID }}: vg_oracle_{{ GLOBAL_SAP_SID }}
+logical_volume_oracle_{{ GLOBAL_SAP_SID }}: lv_oracle_{{ GLOBAL_SAP_SID }}
+
+oracle_disk_type_pattern:
+  - xvdr
+
+# Variables for mounting ORACLE/oraarch disks
+oracle_folder_oraarch: /oracle/{{ GLOBAL_SAP_SID }}/oraarch
+volume_group_oracle_{{ GLOBAL_SAP_SID }}/oraarch: vg_oracle_{{ GLOBAL_SAP_SID }}/oraarch
+logical_volume_oracle_{{ GLOBAL_SAP_SID }}/oraarch: lv_oracle_{{ GLOBAL_SAP_SID }}/oraarch
+
+oracle_disk_type_pattern:
+  - xvdu
 
 # Variables for mounting DATA disks
-hana_data_folder: /hana/data
-volume_group_hana_data: vg_hana_data
-logical_volume_hana_data: lv_hana_data
+oracle_data1_folder: /oracle/{{ GLOBAL_SAP_SID }}/sapdata1
+oracle_data2_folder: /oracle/{{ GLOBAL_SAP_SID }}/sapdata2
+oracle_data3_folder: /oracle/{{ GLOBAL_SAP_SID }}/sapdata3
+oracle_data4_folder: /oracle/{{ GLOBAL_SAP_SID }}/sapdata4
+volume_group_oracle_data1: vg_oracle_data1
+volume_group_oracle_data2: vg_oracle_data2
+volume_group_oracle_data3: vg_oracle_data3
+volume_group_oracle_data4: vg_oracle_data4
+logical_volume_oracle_data1: lv_oracle_data1
+logical_volume_oracle_data2: lv_oracle_data2
+logical_volume_oracle_data3: lv_oracle_data3
+logical_volume_oracle_data4: lv_oracle_data4
+#hana_data_folder: /hana/data
+#volume_group_hana_data: vg_hana_data
+#logical_volume_hana_data: lv_hana_data
 
 hana_data_disk_type_pattern:
   - xvdf
   - xvdg
   - xvdh
+  - xvdi
 
 # Variables for mounting LOG disks
-hana_log_folder: /hana/log
-volume_group_hana_log: vg_hana_log
-logical_volume_hana_log: lv_hana_log
+oracle_orig_logA_folder: /oracle/{{ GLOBAL_SAP_SID }}/origlogA
+oracle_orig_logB_folder: /oracle/{{ GLOBAL_SAP_SID }}/origlogB
+oracle_mirr_logA_folder: /oracle/{{ GLOBAL_SAP_SID }}/mirrlogA
+oracle_mirr_logB_folder: /oracle/{{ GLOBAL_SAP_SID }}/mirrlogB
+volume_group_oracle_orig_logA: vg_oracle_orig_logA
+volume_group_oracle_orig_logB: vg_oracle_orig_logB
+volume_group_oracle_mirr_logA: vg_oracle_mirr_logA
+volume_group_oracle_mirr_logA: vg_oracle_mirr_logA
+logical_volume_oracle_orig_logA: lv_oracle_orig_logA
+logical_volume_oracle_orig_logB: lv_oracle_orig_logB
+logical_volume_oracle_mirr_logA: lv_oracle_mirr_logA
+logical_volume_oracle_mirr_logB: lv_oracle_mirr_logB
+
+#hana_log_folder: /hana/log
+#volume_group_hana_log: vg_hana_log
+#logical_volume_hana_log: lv_hana_log
 
 hana_log_disk_type_pattern:
-  - xvdm
-  - xvdn
-
-# Variables for mounting SHARED disks
-hana_shared_folder: /hana/shared
-volume_group_hana_shared: vg_hana_shared
-logical_volume_hana_shared: lv_hana_shared
-
-hana_shared_disk_type_pattern:
   - xvdo
+  - xvdp
+  - xvdn
+  - xvdm
 
 # Variables for mounting SAP disks
-hana_sap_folder: /usr/sap
-volume_group_hana_sap: vg_usrsap
-logical_volume_hana_sap: lv_usrsap
+oracle_sap_folder: /usr/sap
+volume_group_oracle_sap: vg_usrsap
+logical_volume_oracle_sap: lv_usrsap
 
-hana_sap_disk_type_pattern:
-  - xvdq
+oracle_sap_disk_type_pattern:
+  - xvdt
+
+# Variables for mounting SHARED disks
+#hana_shared_folder: /hana/shared
+#volume_group_hana_shared: vg_hana_shared
+#logical_volume_hana_shared: lv_hana_shared
+
+#hana_shared_disk_type_pattern:
+#  - xvdo
+
+# Variables for mounting SAP disks
+#hana_sap_folder: /usr/sap
+#volume_group_hana_sap: vg_usrsap
+#logical_volume_hana_sap: lv_usrsap
+
+#hana_sap_disk_type_pattern:
+#  - xvdq
 
 # Variables for mounting BACKUP disks
-hana_backup_folder: /backup
-volume_group_hana_backup: vg_hana_backup
-logical_volume_hana_backup: lv_hana_backup
+#hana_backup_folder: /backup
+#volume_group_hana_backup: vg_hana_backup
+#logical_volume_hana_backup: lv_hana_backup
 
-hana_backup_disk_type_pattern:
-  - xvdp
+#hana_backup_disk_type_pattern:
+#  - xvdp
 
 # Variables for mounting SWAP disks
-hana_swap: /swap
-volume_group_hana_swap: vg_swap
-logical_volume_hana_swap: lv_swap
+#hana_swap: /swap
+#volume_group_hana_swap: vg_swap
+#logical_volume_hana_swap: lv_swap
 
-hana_swap_disk_type_pattern:
-  - xvdr
+#hana_swap_disk_type_pattern:
+#  - xvdr
