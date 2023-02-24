@@ -89,7 +89,7 @@ logical_volume_oracle_data4: lv_oracle_data4
 #volume_group_hana_data: vg_hana_data
 #logical_volume_hana_data: lv_hana_data
 
-hana_data_disk_type_pattern:
+oracle_data_disk_type_pattern:
   - xvdf
   - xvdg
   - xvdh
@@ -113,7 +113,7 @@ logical_volume_oracle_mirr_logB: lv_oracle_mirr_logB
 #volume_group_hana_log: vg_hana_log
 #logical_volume_hana_log: lv_hana_log
 
-hana_log_disk_type_pattern:
+oracle_log_disk_type_pattern:
   - xvdo
   - xvdp
   - xvdn
