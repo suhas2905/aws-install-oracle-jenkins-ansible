@@ -19,27 +19,95 @@
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
 
-- name: Create the physical volumes and volume group
+- name: Create the physical volumes and volume group1
   lvg:
     vg: "{{ volume_group_oracle_orig_logA }}"
     pvs: "{{ volume_names[0]}}"
-  register: volumes_output
+  register: volumes_output1
 
-- name: Create the logical volume
+- name: Create the logical volume1
   lvol:
-    vg: "{{ volume_group_hana_log }}"
-    lv: "{{ logical_volume_hana_log }}"
+    vg: "{{ volume_group_oracle_orig_logA}}"
+    lv: "{{ logical_volume_oracle_orig_logA }}"
     size: 100%VG
-    #opts: "-i {{ volume_names | count }}"
+#    opts: "-i {{ volume_names | count }}"
+- name: Create the physical volumes and volume group2
+  lvg:
+    vg: "{{ volume_group_oracle_orig_logB }}"
+    pvs: "{{ volume_names[1]}}"
+  register: volumes_output2
 
-- name: Create the filesystem
+- name: Create the logical volume2
+  lvol:
+    vg: "{{ volume_group_oracle_orig_logB }}"
+    lv: "{{ logical_volume_oracle_orig_logB }}"
+    size: 100%VG
+#    opts: "-i {{ volume_names | count }}"
+- name: Create the physical volumes and volume group3
+  lvg:
+    vg: "{{ volume_group_oracle_mirr_logA }}"
+    pvs: "{{ volume_names[2]}}"
+  register: volumes_output3
+
+- name: Create the logical volume3
+  lvol:
+    vg: "{{ volume_group_oracle_mirr_logA}}"
+    lv: "{{ logical_volume_oracle_mirr_logA }}"
+    size: 100%VG
+#    opts: "-i {{ volume_names | count }}"
+- name: Create the physical volumes and volume group4
+  lvg:
+    vg: "{{ volume_group_oracle_mirr_logB }}"
+    pvs: "{{ volume_names[3]}}"
+  register: volumes_output4
+
+- name: Create the logical volume4
+  lvol:
+    vg: "{{ volume_group_oracle_mirr_logB }}"
+    lv: "{{ logical_volume_oracle_mirr_logB }}"
+    size: 100%VG
+#    opts: "-i {{ volume_names | count }}"
+- name: Create the filesystem1
   filesystem:
     fstype: xfs
-    dev: "/dev/{{ volume_group_hana_log }}/{{ logical_volume_hana_log }}"
+    dev: "/dev/{{ volume_group_oracle_orig_logA }}/{{ logical_volume_oracle_orig_logA}}"
 
-- name: Register filesystem to /etc/fstab
+- name: Register filesystem to /etc/fstab1
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ volume_group_hana_log }}/{{ logical_volume_hana_log }} {{ hana_log_folder }} xfs defaults 1 2"
+    line: "/dev/{{ volume_group_oracle_orig_logA }}/{{ logical_volume_oracle_orig_logA }} {{ oracle_orig_logA_folder}} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem2
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_orig_logB}}/{{ logical_volume_oracle_orig_logB }}"
+
+- name: Register filesystem to /etc/fstab2
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_orig_logB }}/{{ logical_volume_oracle_orig_logB }} {{ oracle_orig_logB_folder }} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem3
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_mirr_logA }}/{{ logical_volume_oracle_mirr_logA }}"
+
+- name: Register filesystem to /etc/fstab3
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_mirr_logA }}/{{ logical_volume_oracle_mirr_logA }} {{ oracle_mirr_logA_folder }} xfs defaults 1 2"
+    state: present
+    insertafter: EOF
+- name: Create the filesystem4
+  filesystem:
+    fstype: xfs
+    dev: "/dev/{{ volume_group_oracle_mirr_logB }}/{{ logical_volume_oracle_mirr_logB }}"
+
+- name: Register filesystem to /etc/fstab4
+  lineinfile:
+    name: /etc/fstab
+    line: "/dev/{{ volume_group_oracle_mirr_logB }}/{{ logical_volume_oracle_mirr_logB }} {{ oracle_mirr_logB_folder }} xfs defaults 1 2"
     state: present
     insertafter: EOF
