@@ -43,7 +43,7 @@ folders_to_create:
 # - /usr/sap/trans
 #  - /software
 #  - /backup
-folders_to_create with difrrent permission:
+folders_to_create_with_difrrent_permission:
   - /oracle/{{ GLOBAL_SAP_SID }}
   - /oracle/{{ GLOBAL_SAP_SID }}/oraarch
 
