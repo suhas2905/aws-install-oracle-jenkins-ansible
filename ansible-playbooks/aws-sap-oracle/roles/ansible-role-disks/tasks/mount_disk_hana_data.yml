@@ -26,7 +26,7 @@
 - name: Create the physical volumes and volume group1
   lvg:
     vg: "{{ volume_group_oracle_data1 }}"
-    pvs: "{{ volume_names[0]|join(',')}}"
+    pvs: "{{ volume_names[0]}}"
   register: volumes_output1
 
 - name: Create the logical volume1
@@ -41,7 +41,7 @@
 - name: Create the physical volumes and volume group2
   lvg:
     vg: "{{ volume_group_oracle_data2 }}"
-    pvs: "{{ volume_names[1]|join(',')}}"
+    pvs: "{{ volume_names[1]}}"
   register: volumes_output2
 
 - name: Create the logical volume2
@@ -57,7 +57,7 @@
 - name: Create the physical volumes and volume group3
   lvg:
     vg: "{{ volume_group_oracle_data3 }}"
-    pvs: "{{ volume_names[2]|join(',')}}"
+    pvs: "{{ volume_names[2]}}"
   register: volumes_output3
 
 - name: Create the logical volume3
@@ -73,7 +73,7 @@
 - name: Create the physical volumes and volume group4
   lvg:
     vg: "{{ volume_group_oracle_data4 }}"
-    pvs: "{{ volume_names[3]|join(',')}}"
+    pvs: "{{ volume_names[3]}}"
   register: volumes_output4
 
 - name: Create the logical volume4
