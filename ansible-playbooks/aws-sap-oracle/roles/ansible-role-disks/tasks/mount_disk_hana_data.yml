@@ -26,7 +26,7 @@
 - name: Create the physical volumes and volume group1
   lvg:
     vg: "{{ volume_group_oracle_data1 }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names[0]|join(',')}}"
   register: volumes_output1
 
 - name: Create the logical volume1
@@ -34,7 +34,7 @@
     vg: "{{ volume_group_oracle_data1 }}"
     lv: "{{ logical_volume_oracle_data1 }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    opts: "-i {{ volume_names[0] | count }}"
 
 
 
