@@ -11,8 +11,14 @@
   set_fact: all_disks_mounted=true
   when: item in mounted_folder_list.stdout_lines
   with_items:
-    - "{{ hana_data_folder }}"
-    - "{{ hana_log_folder }}"
-    - "{{ hana_shared_folder }}"
-    - "{{ hana_sap_folder }}"
-    - "{{ hana_backup_folder }}"
+    - "{{ oracle_data1_folder}}"
+    - "{{ oracle_data2_folder }}"
+    - "{{ oracle_data3_folder }}"
+    - "{{ oracle_data4_folder }}"
+    - "{{ oracle_orig_logA_folder }}"
+    - "{{ oracle_orig_logB_folder }}"
+    - "{{ oracle_mirr_logA_folder }}"
+    - "{{ oracle_mirr_logB_folder }}"
+    - "{{ oracle_folder_GLOBAL_SAP_SID }}"
+    - "{{ oracle_folder_oraarch }}"
+    - "{{ oracle_folder }}"
