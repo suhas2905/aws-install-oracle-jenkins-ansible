@@ -103,7 +103,7 @@ oracle_mirr_logB_folder: /oracle/{{ GLOBAL_SAP_SID }}/mirrlogB
 volume_group_oracle_orig_logA: vg_oracle_orig_logA
 volume_group_oracle_orig_logB: vg_oracle_orig_logB
 volume_group_oracle_mirr_logA: vg_oracle_mirr_logA
-volume_group_oracle_mirr_logA: vg_oracle_mirr_logA
+volume_group_oracle_mirr_logB: vg_oracle_mirr_logA
 logical_volume_oracle_orig_logA: lv_oracle_orig_logA
 logical_volume_oracle_orig_logB: lv_oracle_orig_logB
 logical_volume_oracle_mirr_logA: lv_oracle_mirr_logA
