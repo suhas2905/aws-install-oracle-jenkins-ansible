@@ -19,6 +19,8 @@
 
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
+- name: Make a list with stdout found1
+  set_fact: volume_names1="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | second }}"
 
 - name: Create the physical volumes and volume group1
   lvg:
@@ -38,7 +40,7 @@
 - name: Create the physical volumes and volume group2
   lvg:
     vg: "{{ volume_group_oracle_data2 }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names1|join(',')}}"
   register: volumes_output2
 
 - name: Create the logical volume2
