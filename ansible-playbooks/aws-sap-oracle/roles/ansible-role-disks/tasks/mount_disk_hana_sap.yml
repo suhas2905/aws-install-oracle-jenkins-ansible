@@ -8,7 +8,7 @@
   #In case of xvdf
   #shell: grep {{ item }} {{ disk_mapping_file_full_path }} | awk '{print $2}'
   register: volumes_found
-  with_items: "{{ hana_sap_disk_type_pattern }}"
+  with_items: "{{ oracle_disk_type_pattern: }}"
 
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
@@ -21,25 +21,25 @@
 
 - name: Create the physical volumes and volume group
   lvg:
-    vg: "{{ volume_group_hana_sap }}"
+    vg: "{{ volume_group_oracle_{{ GLOBAL_SAP_SID }} }}"
     pvs: "{{ volume_names|join(',')}}"
   register: volumes_output
 
 - name: Create the logical volume
   lvol:
-    vg: "{{ volume_group_hana_sap }}"
-    lv: "{{ logical_volume_hana_sap }}"
+    vg: "{{volume_group_oracle_{{ GLOBAL_SAP_SID }} }}"
+    lv: "{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }} }}"
     size: 100%VG
     opts: "-i {{ volume_names | count }}"
 
 - name: Create the filesystem
   filesystem:
     fstype: xfs
-    dev: "/dev/{{ volume_group_hana_sap }}/{{ logical_volume_hana_sap }}"
+    dev: "/dev/{{ volume_group_oracle_{{ GLOBAL_SAP_SID }}}}/{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }} }}"
 
 - name: Register filesystem to /etc/fstab
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ volume_group_hana_sap }}/{{ logical_volume_hana_sap }} {{ hana_sap_folder }} xfs defaults 1 2"
+    line: "/dev/{{ volume_group_oracle_{{ GLOBAL_SAP_SID }} }}/{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }} }} {{ oracle_folder_GLOBAL_SAP_SID }} xfs defaults 1 2"
     state: present
     insertafter: EOF
