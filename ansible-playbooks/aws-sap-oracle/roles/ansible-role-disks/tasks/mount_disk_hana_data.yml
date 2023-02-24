@@ -19,9 +19,9 @@
 
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
-- name: Make a list with stdout found1
-  debug: 
-    msg: "{{volume_names[1]}}"
+#- name: Make a list with stdout found1
+#  debug: 
+#    msg: "{{volume_names[1]}}"
 
 - name: Create the physical volumes and volume group1
   lvg:
@@ -41,7 +41,7 @@
 - name: Create the physical volumes and volume group2
   lvg:
     vg: "{{ volume_group_oracle_data2 }}"
-    pvs: "{{ volume_names1|join(',')}}"
+    pvs: "{{ volume_names[1]|join(',')}}"
   register: volumes_output2
 
 - name: Create the logical volume2
@@ -49,7 +49,7 @@
     vg: "{{ volume_group_oracle_data2 }}"
     lv: "{{ logical_volume_oracle_data2 }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    opts: "-i {{ volume_names[1] | count }}"
 
 
 
@@ -57,7 +57,7 @@
 - name: Create the physical volumes and volume group3
   lvg:
     vg: "{{ volume_group_oracle_data3 }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names[2]|join(',')}}"
   register: volumes_output3
 
 - name: Create the logical volume3
@@ -65,7 +65,7 @@
     vg: "{{ volume_group_oracle_data3 }}"
     lv: "{{ logical_volume_oracle_data3 }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    opts: "-i {{ volume_names[2] | count }}"
 
 
 
@@ -73,7 +73,7 @@
 - name: Create the physical volumes and volume group4
   lvg:
     vg: "{{ volume_group_oracle_data4 }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "{{ volume_names[3]|join(',')}}"
   register: volumes_output4
 
 - name: Create the logical volume4
@@ -81,7 +81,7 @@
     vg: "{{ volume_group_oracle_data4 }}"
     lv: "{{ logical_volume_oracle_data4 }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    opts: "-i {{ volume_names[3] | count }}"
 
 
 
