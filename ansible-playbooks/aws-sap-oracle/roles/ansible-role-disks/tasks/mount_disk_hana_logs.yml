@@ -8,7 +8,7 @@
   #In case of xvdf
   #shell: grep {{ item }} {{ disk_mapping_file_full_path }} | awk '{print $2}'
   register: volumes_found
-  with_items: "{{ hana_log_disk_type_pattern }}"
+  with_items: "{{ oracle_log_disk_type_pattern }}"
 
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
@@ -21,8 +21,8 @@
 
 - name: Create the physical volumes and volume group
   lvg:
-    vg: "{{ volume_group_hana_log }}"
-    pvs: "{{ volume_names|join(',')}}"
+    vg: "{{ volume_group_oracle_orig_logA }}"
+    pvs: "{{ volume_names[0]}}"
   register: volumes_output
 
 - name: Create the logical volume
@@ -30,7 +30,7 @@
     vg: "{{ volume_group_hana_log }}"
     lv: "{{ logical_volume_hana_log }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+    #opts: "-i {{ volume_names | count }}"
 
 - name: Create the filesystem
   filesystem:
