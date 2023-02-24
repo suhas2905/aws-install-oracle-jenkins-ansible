@@ -8,7 +8,18 @@
     path: "{{ item }}"
     state: directory
     mode: '0755'
+    owner: oracle
+    group: oinstall
   loop: "{{ folders_to_create }}"
+
+- name: Create directories if they don't exist for oracle and oraarch
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0775'
+    owner: oracle
+    group: oinstall
+  loop: "{{ folders_to_create with difrrent permission }}"
 
 - name: EFS direcroty
   file:
