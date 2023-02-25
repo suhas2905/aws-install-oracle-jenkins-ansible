@@ -19,8 +19,8 @@
 - name: Mount disks Oracle Logs
   include_tasks: mount_disk_oracle_logs.yml
 
-- name: Mount disks Hana Backup
-  include_tasks: mount_disk_hana_backup.yml
+- name: Mount disks Oracle orarch
+  include_tasks: mount_disk_oracle_orarch.yml
 
 - name: Mount shared EFS SAPMNT
   include_tasks: mount_disk_sapmnt.yml
