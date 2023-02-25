@@ -12,15 +12,14 @@
 - name: Mount disks Oracle SAP
   include_tasks: mount_disk_oracle_sid.yml
   
+- name: Mount disks Oracle orarch
+  include_tasks: mount_disk_oracle_orarch.yml 
   
 - name: Mount disks Oracle Data
   include_tasks: mount_disk_oracle_data.yml
 
 - name: Mount disks Oracle Logs
   include_tasks: mount_disk_oracle_logs.yml
-
-- name: Mount disks Oracle orarch
-  include_tasks: mount_disk_oracle_orarch.yml
 
 - name: Mount shared EFS SAPMNT
   include_tasks: mount_disk_sapmnt.yml
