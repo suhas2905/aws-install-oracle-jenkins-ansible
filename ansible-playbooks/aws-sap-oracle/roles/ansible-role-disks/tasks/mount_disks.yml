@@ -7,10 +7,10 @@
   include_tasks: create_disk_mapping_file.yml
 
 - name: Mount disks Hana Data
-  include_tasks: mount_disk_hana_data.yml
+  include_tasks: mount_disk_oracle_data.yml
 
 - name: Mount disks Hana Logs
-  include_tasks: mount_disk_hana_logs.yml
+  include_tasks: mount_disk_oracle_logs.yml
 
 - name: Mount disks Hana Shared
   include_tasks: mount_disk_hana_shared.yml
