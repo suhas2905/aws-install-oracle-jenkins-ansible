@@ -44,3 +44,11 @@
     line: "/dev/{{ volume_group_oracle_GLOBAL_SAP_SID_oraarch }}/{{ logical_volume_oracle_GLOBAL_SAP_SID_oraarch }} {{ oracle_folder_oraarch }} xfs defaults 1 2"
     state: present
     insertafter: EOF
+- name: Reboot instance
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 600
+    pre_reboot_delay: 0
+    post_reboot_delay: 30
+    test_command: whoami
