@@ -21,7 +21,7 @@
 
 - name: Create the physical volumes and volume group
   lvg:
-    vg: "{{ volume_group_oracle_{{ GLOBAL_SAP_SID }} }}"
+    vg: "{{ volume_group_oracle_GLOBAL_SAP_SID }}"
     pvs: "{{ volume_names|join(',')}}"
   register: volumes_output
 
