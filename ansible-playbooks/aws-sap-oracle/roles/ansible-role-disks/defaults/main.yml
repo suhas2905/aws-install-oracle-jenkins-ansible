@@ -58,16 +58,16 @@ oracle_disk_type_pattern:
 
 # Variables for mounting ORACLE/GLOBAL_SAP_SID disks
 oracle_folder_GLOBAL_SAP_SID: /oracle/{{ GLOBAL_SAP_SID }}
-volume_group_oracle_ GLOBAL_SAP_SID: vg_oracle_{{ GLOBAL_SAP_SID }}
-logical_volume_oracle_GLOBAL_SAP_SID: lv_oracle_{{ GLOBAL_SAP_SID }}
+volume_group_oracle_ GLOBAL_SAP_SID: vg_oracle_GLOBAL_SAP_SID
+logical_volume_oracle_GLOBAL_SAP_SID: lv_oracle_GLOBAL_SAP_SID
 
 oracle_disk_type_pattern_GLOBAL_SAP_SID:
   - xvdr
 
 # Variables for mounting ORACLE/oraarch disks
 oracle_folder_oraarch: /oracle/{{ GLOBAL_SAP_SID }}/oraarch
-volume_group_oracle_GLOBAL_SAP_SID_oraarch: vg_oracle_{{ GLOBAL_SAP_SID }}_oraarch
-logical_volume_oracle_GLOBAL_SAP_SID_oraarch: lv_oracle_{{ GLOBAL_SAP_SID }}_oraarch
+volume_group_oracle_GLOBAL_SAP_SID_oraarch: vg_oracle_GLOBAL_SAP_SID_oraarch
+logical_volume_oracle_GLOBAL_SAP_SID_oraarch: lv_oracle_GLOBAL_SAP_SID_oraarch
 
 oracle_disk_type_pattern_orarch:
   - xvdu
