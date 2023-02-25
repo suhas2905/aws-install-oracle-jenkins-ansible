@@ -5,15 +5,15 @@
 
 - name: Create the disk mapping file
   include_tasks: create_disk_mapping_file.yml
-
+  
+- name: Mount disks Oracle 
+  include_tasks: mount_disk_oracle.yml
+  
 - name: Mount disks Oracle Data
   include_tasks: mount_disk_oracle_data.yml
 
 - name: Mount disks Oracle Logs
   include_tasks: mount_disk_oracle_logs.yml
-
-- name: Mount disks Oracle 
-  include_tasks: mount_disk_oracle.yml
 
 - name: Mount disks Hana SAP
   include_tasks: mount_disk_hana_sap.yml
