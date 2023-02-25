@@ -58,7 +58,7 @@ oracle_disk_type_pattern:
 
 # Variables for mounting ORACLE/GLOBAL_SAP_SID disks
 oracle_folder_GLOBAL_SAP_SID: /oracle/{{ GLOBAL_SAP_SID }}
-volume_group_oracle_ GLOBAL_SAP_SID: vg_oracle_GLOBAL_SAP_SID
+volume_group_oracle_GLOBAL_SAP_SID: vg_oracle_GLOBAL_SAP_SID
 logical_volume_oracle_GLOBAL_SAP_SID: lv_oracle_GLOBAL_SAP_SID
 
 oracle_disk_type_pattern_GLOBAL_SAP_SID:
