@@ -43,6 +43,13 @@
     line: "/dev/{{ volume_group_oracle }}/{{ logical_volume_oracle }} {{ oracle_folder }} xfs defaults 1 2"
     state: present
     insertafter: EOF
-
+- name: Reboot instance
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 600
+    pre_reboot_delay: 0
+    post_reboot_delay: 30
+    test_command: whoami
 #- name: Set fact with Hana shared folder path to configure Backint in the future
 #  set_fact: GLOBAL_HANA_SHARED_FOLDER="{{ hana_shared_folder }}"
