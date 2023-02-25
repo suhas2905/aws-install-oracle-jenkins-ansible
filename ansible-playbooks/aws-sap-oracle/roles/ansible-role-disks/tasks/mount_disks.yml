@@ -9,7 +9,7 @@
 - name: Mount disks Oracle 
   include_tasks: mount_disk_oracle.yml
   
-- name: Mount disks Oracle SAP
+- name: Mount disks Oracle SID
   include_tasks: mount_disk_oracle_sid.yml
   
 - name: Mount disks Oracle orarch
