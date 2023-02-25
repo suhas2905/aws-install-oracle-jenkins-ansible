@@ -9,7 +9,7 @@
 
   shell: grep {{ item }} {{ disk_mapping_file_full_path }} | awk '{print $2}'
   register: volumes_found
-  with_items: "{{ hana_backup_disk_type_pattern }}"
+  with_items: "{{ oracle_disk_type_pattern_oraarch }}"
 
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
@@ -22,25 +22,25 @@
 
 - name: Create the physical volumes and volume group
   lvg:
-    vg: "{{ volume_group_hana_backup }}"
+    vg: "{{ volume_group_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}"
     pvs: "{{ volume_names|join(',')}}"
   register: volumes_output
 
 - name: Create the logical volume
   lvol:
-    vg: "{{ volume_group_hana_backup }}"
-    lv: "{{ logical_volume_hana_backup }}"
+    vg: "{{ volume_group_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}"
+    lv: "{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}"
     size: 100%VG
     opts: "-i {{ volume_names | count }}"
 
 - name: Create the filesystem
   filesystem:
     fstype: xfs
-    dev: "/dev/{{ volume_group_hana_backup }}/{{ logical_volume_hana_backup }}"
+    dev: "/dev/{{ volume_group_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}/{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}"
 
 - name: Register filesystem to /etc/fstab
   lineinfile:
     name: /etc/fstab
-    line: "/dev/{{ volume_group_hana_backup }}/{{ logical_volume_hana_backup }} {{ hana_backup_folder }} xfs defaults 1 2"
+    line: "/dev/{{ volume_group_oracle_{{ GLOBAL_SAP_SID }}/oraarch }}/{{ logical_volume_oracle_{{ GLOBAL_SAP_SID }}/oraarch }} {{ oracle_folder_oraarch }} xfs defaults 1 2"
     state: present
     insertafter: EOF
