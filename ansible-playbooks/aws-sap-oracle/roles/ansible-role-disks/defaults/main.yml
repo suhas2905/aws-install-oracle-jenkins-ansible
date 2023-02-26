@@ -89,7 +89,7 @@ logical_volume_oracle_data4: lv_oracle_data4
 #volume_group_hana_data: vg_hana_data
 #logical_volume_hana_data: lv_hana_data
 
-oracle_data_disk_type:
+oracle_disk_type_pattern:
   - xvdf
   - xvdg
   - xvdh
@@ -113,7 +113,7 @@ logical_volume_oracle_mirr_logB: lv_oracle_mirr_logB
 #volume_group_hana_log: vg_hana_log
 #logical_volume_hana_log: lv_hana_log
 
-oracle_log_disk_type_pattern:
+oracle_disk_type_pattern:
   - xvdo
   - xvdp
   - xvdn
@@ -124,7 +124,7 @@ oracle_sap_folder: /usr/sap
 volume_group_oracle_sap: vg_usrsap
 logical_volume_oracle_sap: lv_usrsap
 
-oracle_sap_disk_type_pattern:
+oracle_disk_type_pattern:
   - xvdt
 
 # Variables for mounting SHARED disks
