@@ -31,7 +31,7 @@
     vg: "{{ volume_group_oracle_GLOBAL_SAP_SID_oraarch }}"
     lv: "{{ logical_volume_oracle_GLOBAL_SAP_SID_oraarch }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+#    opts: "-i {{ volume_names | count }}"
 
 - name: Create the filesystem
   filesystem:
