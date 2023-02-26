@@ -30,7 +30,7 @@
     vg: "{{ volume_group_oracle }}"
     lv: "{{ logical_volume_oracle }}"
     size: 100%VG
-    opts: "-i {{ volume_names | count }}"
+#  opts: "-i {{ volume_names | count }}"
 
 - name: Create the filesystem
   filesystem:
