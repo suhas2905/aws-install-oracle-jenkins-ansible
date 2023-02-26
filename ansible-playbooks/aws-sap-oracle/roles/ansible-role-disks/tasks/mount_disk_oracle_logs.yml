@@ -8,7 +8,7 @@
   #In case of xvdf
   #shell: grep {{ item }} {{ disk_mapping_file_full_path }} | awk '{print $2}'
   register: volumes_found
-  with_items: "{{ oracle_log_disk_type_pattern_log }}"
+  with_items: "{{ oracle_log_disk_type_pattern}}"
 
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
