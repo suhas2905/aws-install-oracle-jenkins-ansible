@@ -9,38 +9,24 @@
 - name: Mount disks Oracle 
   include_tasks: mount_disk_oracle.yml
   
-- name: Create the disk mapping file
-  include_tasks: create_disk_mapping_file.yml
-  
 - name: Create folders1
   include_tasks: create_folders_1.yml
   
 - name: Mount disks Oracle SID
   include_tasks: mount_disk_oracle_sid.yml
   
-- name: Create the disk mapping file
-  include_tasks: create_disk_mapping_file.yml
-  
 - name: Create folders2
   include_tasks: create_folders_1.yml
   
 - name: Mount disks Oracle orarch
-  include_tasks: mount_disk_oracle_orarch.yml 
-  
-- name: Create the disk mapping file
-  include_tasks: create_disk_mapping_file.yml  
+  include_tasks: mount_disk_oracle_orarch.yml  
   
 - name: Mount disks SAP disks
   include_tasks: mount_disk_oracle_sap_disks.yml 
   
-- name: Create the disk mapping file
-  include_tasks: create_disk_mapping_file.yml  
   
 - name: Mount disks Oracle Data
   include_tasks: mount_disk_oracle_data.yml
-  
-- name: Create the disk mapping file
-  include_tasks: create_disk_mapping_file.yml
   
 - name: Mount disks Oracle Logs
   include_tasks: mount_disk_oracle_logs.yml
