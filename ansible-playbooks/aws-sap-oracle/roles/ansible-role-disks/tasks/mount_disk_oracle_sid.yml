@@ -14,7 +14,7 @@
   set_fact: mount_name="{{ item.stdout }}"
   loop: "{{ volumes_found.results }}"
   register: volume_name_result
-  no_log: yes
+  #no_log: yes
 
 - name: Make a list with stdout found
   set_fact: volume_names="{{ volume_name_result.results | map(attribute='ansible_facts.mount_name') | list }}"
