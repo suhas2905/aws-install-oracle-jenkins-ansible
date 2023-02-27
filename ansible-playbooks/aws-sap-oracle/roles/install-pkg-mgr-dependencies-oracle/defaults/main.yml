@@ -5,13 +5,13 @@
 
 # REDHAT (RHEL) RELATED VARIABLES
 rhel_packages:
-  - python3
-  - python2
-  - unzip
+#  - python3
+#  - python2
+#  - unzip
 #  - xfsprogs
 #  - autofs
 #  - gcc
-  - libstdc++
+#  - libstdc++
 #  - nvme-cli
 #  - libatomic
 #  - libnsl
@@ -40,8 +40,8 @@ rhel_packages:
 #  - kernel
 #  - chrony
 #  - corosync
-  - pcs
-  - pacemaker
+#  - pcs
+#  - pacemaker
   - oracle-database-preinstall-19c
 rhel_group_packages:
   - "@Server"
