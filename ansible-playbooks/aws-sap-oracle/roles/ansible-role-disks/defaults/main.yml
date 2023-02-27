@@ -54,7 +54,7 @@ volume_group_oracle: vg_oracle
 logical_volume_oracle: lv_oracle
 
 oracle_disk_type_pattern:
-  - xvds
+  - xvdj
 
 # Variables for mounting ORACLE/GLOBAL_SAP_SID disks
 oracle_folder_GLOBAL_SAP_SID: /oracle/{{ GLOBAL_SAP_SID }}
