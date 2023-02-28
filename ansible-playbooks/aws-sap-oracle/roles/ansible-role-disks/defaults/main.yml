@@ -7,7 +7,7 @@
 regex_to_look_for_disks: "nvme\\w*n1\\b"
 #when xvd format
 #regex_to_look_for_disks: "xvd\\w*\\b"
-minimum_number_of_mounted_disks_to_search: 9
+minimum_number_of_mounted_disks_to_search: 15
 
 grep_find_command: grep /dev/xvd
 awk_position_command: awk '{ print $18 }'
