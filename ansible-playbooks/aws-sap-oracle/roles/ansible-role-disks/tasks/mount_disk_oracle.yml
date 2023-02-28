@@ -22,7 +22,7 @@
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_oracle}}"
-    pvs: "{{ volume_names }}"
+    pvs: "/dev/nvme1n1"
   register: volumes_output
 
 - name: Create the logical volume
