@@ -54,7 +54,7 @@ volume_group_oracle: vg_oracle
 logical_volume_oracle: lv_oracle
 
 oracle_disk_type_pattern:
-  - xvds
+  - nvme1n1
 
 # Variables for mounting ORACLE/GLOBAL_SAP_SID disks
 oracle_folder_GLOBAL_SAP_SID: /oracle/{{ GLOBAL_SAP_SID }}
@@ -62,7 +62,7 @@ volume_group_oracle_GLOBAL_SAP_SID: vg_oracle_GLOBAL_SAP_SID
 logical_volume_oracle_GLOBAL_SAP_SID: lv_oracle_GLOBAL_SAP_SID
 
 oracle_disk_type_pattern_GLOBAL_SAP_SID:
-  - xvdr
+  - nvme2n1
 
 # Variables for mounting ORACLE/oraarch disks
 oracle_folder_oraarch: /oracle/{{ GLOBAL_SAP_SID }}/oraarch
@@ -70,7 +70,7 @@ volume_group_oracle_GLOBAL_SAP_SID_oraarch: vg_oracle_GLOBAL_SAP_SID_oraarch
 logical_volume_oracle_GLOBAL_SAP_SID_oraarch: lv_oracle_GLOBAL_SAP_SID_oraarch
 
 oracle_disk_type_pattern_orarch:
-  - xvds
+  - nvme3n1 
 
 # Variables for mounting DATA disks
 oracle_data1_folder: /oracle/{{ GLOBAL_SAP_SID }}/sapdata1
@@ -90,10 +90,10 @@ logical_volume_oracle_data4: lv_oracle_data4
 #logical_volume_hana_data: lv_hana_data
 
 oracle_data_disk_type_pattern_data:
-  - xvdf
-  - xvdg
-  - xvdh
-  - xvdi
+  - nvme4n1
+  - nvme5n1
+  - nvme6n1
+  - nvme7n1
 
 # Variables for mounting LOG disks
 oracle_orig_logA_folder: /oracle/{{ GLOBAL_SAP_SID }}/origlogA
@@ -114,10 +114,10 @@ logical_volume_oracle_mirr_logB: lv_oracle_mirr_logB
 #logical_volume_hana_log: lv_hana_log
 
 oracle_log_disk_type_pattern_log:
-  - xvdo
-  - xvdp
-  - xvdn
-  - xvdm
+  - nvme8n1
+  - nvme9n1
+  - nvme10n1
+  - nvme11n1
 
 # Variables for mounting SAP disks
 oracle_sap_folder: /usr/sap
@@ -125,7 +125,7 @@ volume_group_oracle_sap: vg_usrsap
 logical_volume_oracle_sap: lv_usrsap
 
 oracle_sap_disk_type_pattern_usr_sap:
-  - xvdt
+  - nvme12n1
 
 # Variables for mounting SHARED disks
 #hana_shared_folder: /hana/shared
