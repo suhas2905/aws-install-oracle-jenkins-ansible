@@ -6,8 +6,8 @@
 - name: Create the disk mapping file
   include_tasks: create_disk_mapping_file.yml
   
-- name: Mount disks Oracle 
-  include_tasks: mount_disk_oracle.yml
+#- name: Mount disks Oracle 
+#  include_tasks: mount_disk_oracle.yml
   
 - name: Create folders
   include_tasks: create_folders.yml
