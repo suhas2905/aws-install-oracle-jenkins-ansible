@@ -18,7 +18,7 @@
   set_fact: mount_type="{{ item.stdout }} /dev/{{ item.item }}"
   loop: "{{ mount_types_complete.results }}"
   register: mount_result
-  no_log: yes
+  #no_log: yes
 
 - name: Make a list with stdout found
   set_fact: mount_types_out="{{ mount_result.results | map(attribute='ansible_facts.mount_type') | list }}"
