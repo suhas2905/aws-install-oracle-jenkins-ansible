@@ -12,7 +12,6 @@ rhel_packages:
 #  - autofs
 #  - gcc
 #  - libstdc++
- - nvme-cli
 #  - libatomic
 #  - libnsl
 #  - uuidd
@@ -42,6 +41,7 @@ rhel_packages:
 #  - corosync
 #  - pcs
 #  - pacemaker
+  - nvme-cli
   - bc
   - binutils
   - elfutils-libelf
