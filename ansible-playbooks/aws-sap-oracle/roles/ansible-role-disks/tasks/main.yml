@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: MIT-0
 - name: Mount MAIN / of EFS
   include_tasks: mount_disk_mainroot.yml
+  
+- name: Create users
+  include_tasks: create_users.yml
 
 - name: Create folders
   include_tasks: create_folders.yml
