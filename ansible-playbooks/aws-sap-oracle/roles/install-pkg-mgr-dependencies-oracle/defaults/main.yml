@@ -42,6 +42,33 @@ rhel_packages:
 #  - corosync
 #  - pcs
 #  - pacemaker
+  - bc
+  - binutils
+  - elfutils-libelf
+  - elfutils-libelf-devel
+  - fontconfig-devel
+  - glibc
+  - glibc-devel
+  - ksh
+  - libaio
+  - libaio-devel
+  - libXrender
+  - libX11
+  - libXau
+  - libXi
+  - libXtst
+  - libgcc
+  - libnsl
+  - librdmacm
+  - libstdc++
+  - libstdc++-devel
+  - libxcb
+  - libibverbs
+  - make
+  - policycoreutils
+  - policycoreutils-python-utils
+  - smartmontools
+  - sysstat
   - oracle-database-preinstall-19c
 rhel_group_packages:
   - "@Server"
