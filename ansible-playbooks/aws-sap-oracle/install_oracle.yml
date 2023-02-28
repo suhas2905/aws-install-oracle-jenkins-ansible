@@ -8,6 +8,7 @@
   become: true
   hosts: all
   roles:
+    - role: sap_anydb_install_oracle
     - role: check-inputs-oracle
       vars:
         input_variables_to_check:
