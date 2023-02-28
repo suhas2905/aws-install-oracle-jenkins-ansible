@@ -12,7 +12,7 @@ rhel_packages:
 #  - autofs
 #  - gcc
 #  - libstdc++
-#  - nvme-cli
+ - nvme-cli
 #  - libatomic
 #  - libnsl
 #  - uuidd
