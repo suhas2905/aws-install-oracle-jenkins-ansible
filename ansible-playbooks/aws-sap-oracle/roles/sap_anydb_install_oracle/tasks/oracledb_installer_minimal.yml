@@ -39,7 +39,7 @@
   ansible.builtin.shell: |
     setenv CV_ASSUME_DISTID "OL7"
     setenv DISPLAY
-    setenv DB_SID "{{ sap_anydb_install_oracle_sid }}"
+    setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
     setenv ORACLE_BASE "{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID/19.0.0"
     setenv ORACLE_HOME_NAME "OraDb19c_1"
