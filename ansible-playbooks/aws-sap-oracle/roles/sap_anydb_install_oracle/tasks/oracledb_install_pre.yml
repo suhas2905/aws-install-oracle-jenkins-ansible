@@ -4,36 +4,36 @@
 ## oracle-database-preinstall-12cr1.rpm
 ## oracle-database-preinstall-12cr2.rpm
 ## oracle-database-preinstall-19c.rpm >> https://yum.oracle.com/repo/OracleLinux/OL8/appstream/x86_64/getPackage/oracle-database-preinstall-19c-1.0-2.el8.x86_64.rpm
-- name: Install C Shell (CSH), Korn Shell (KSH) and other dependencies for Oracle DB
-  ansible.builtin.package:
-    name:
-    - csh
-    - ksh
-    - mksh
-    - bc
-    - bind-utils
-    - gcc
-    - gcc-c++
-    - glibc-devel
-    - libcap
-    - libaio
-    - libaio-devel
-    - libgcc
-    - libstdc++
-    - libstdc++-devel
-    - make
-    - psmisc
-    - rdma-core-devel
-    - smartmontools
-    - sysstat
-    - unzip
-    - xorg-x11-utils
-    - xorg-x11-xauth
-    - unixODBC
-    - unixODBC-devel
-    - libnsl
-    state: present
-  notify: __sap_anydb_install_oracle_reboot_handler
+#- name: Install C Shell (CSH), Korn Shell (KSH) and other dependencies for Oracle DB
+#  ansible.builtin.package:
+#    name:
+#    - csh
+#    - ksh
+#    - mksh
+#    - bc
+#    - bind-utils
+#    - gcc
+#    - gcc-c++
+#    - glibc-devel
+#    - libcap
+#    - libaio
+#    - libaio-devel
+#    - libgcc
+#    - libstdc++
+#    - libstdc++-devel
+#    - make
+#    - psmisc
+#    - rdma-core-devel
+#    - smartmontools
+#    - sysstat
+#    - unzip
+#    - xorg-x11-utils
+#    - xorg-x11-xauth
+#    - unixODBC
+#    - unixODBC-devel
+#    - libnsl
+#    state: present
+#  notify: __sap_anydb_install_oracle_reboot_handler
 
 # Removed Packages from RHEL 8.x
 # https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/considerations_in_adopting_rhel_8/index#removed-packages_changes-to-packages
