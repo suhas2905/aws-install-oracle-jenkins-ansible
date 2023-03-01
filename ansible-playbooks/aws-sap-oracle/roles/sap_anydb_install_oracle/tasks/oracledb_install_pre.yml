@@ -83,7 +83,41 @@
     - { path: "{{ sap_anydb_install_oracle_filesystem_storage }}", owner: oracle, group: oinstall }
     - { path: /rman, owner: oracle, group: oinstall }
     - { path: /archivelog, owner: oracle, group: oinstall }
+    
+    
+    
+- name: Oracle DB - unarchived folder
+  become_user: root
+  ansible.builtin.file:
+    state: directory
+    path: "/sap-installation/oracle-installation/unarchived"
+    mode: '0774'
 
+- name: Download Hana from S3 bucket
+  shell: aws s3 sync {{ GLOBAL_S3_BUCKET_MEDIA_FILES }}/ORACLE_DB_Software {{ oracle_zip_folder }}
+  register: download_output
+  until: download_output is not failed
+  retries: 5
+  run_once: true
+
+- name: Fail if no Hana file was found in the bucket
+  stat:
+    path: "{{ oracle_file_full_path }}"
+  register: oracle_file_stat
+  failed_when: not oracle_file_stat.stat.exists
+
+- name: Check if the file was already unarchived
+  stat:
+    path: "{{ oracle_unarchived_folder }}/DATA_UNITS"
+  register: oracle_folder_stat
+
+- name: Unarchive Hana file
+  unarchive:
+    src: "{{ oracle_file_full_path }}"
+    remote_src: yes
+    dest: "{{ oracle_unarchived_folder }}"
+  when: not oracle_folder_stat.stat.exists 
+  
 - name: Oracle DB - Copy installation media
   ansible.builtin.copy:
     remote_src: true
@@ -108,7 +142,7 @@
   ansible.builtin.shell: |
     setenv CV_ASSUME_DISTID "OL7"
     setenv DISPLAY
-    setenv DB_SID "{{ sap_anydb_install_oracle_sid }}"
+    setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
     setenv ORACLE_BASE "{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID/19.0.0"
     setenv ORACLE_HOME_NAME "OraDb19c_1"
