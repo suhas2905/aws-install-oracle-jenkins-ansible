@@ -151,14 +151,14 @@
     setenv ORA_GOLD_IMAGE_FILE_L "$ORACLE_BASE/dvd/19.0.0/db_home"
     setenv INVENTORY_LOCATION "{{ sap_anydb_install_oracle_inventory_central }}"
     $ORA_GOLD_IMAGE_FILE_L/SAP/19cinstall.sh -norsp -silent -ohextract -ohcheck -db_sid "$DB_SID" -oracle_base "$ORACLE_BASE" -oracle_stage "$ORA_GOLD_IMAGE_FILE_L"
-  when:
-    - sap_anydb_install_oracle_prep_precheck
+#  when:
+#   - sap_anydb_install_oracle_prep_precheck
 
 # Avoid built-in file Ansible Module with absent, this would remove directory too
 - name: Oracle DB - remove extracted directory after precheck
   ansible.builtin.shell: rm -rf "{{ sap_anydb_install_oracle_base }}/dvd/19.0.0/*"
-  when:
-    - sap_anydb_install_oracle_prep_precheck
+#  when:
+#    - sap_anydb_install_oracle_prep_precheck
 
 #- name: Oracle DB - debug output
 #  ansible.builtin.debug:
