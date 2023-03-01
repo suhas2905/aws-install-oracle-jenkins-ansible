@@ -116,7 +116,7 @@
     src: "{{ oracle_file_full_path }}"
     remote_src: yes
     dest: "{{ oracle_unarchived_folder }}"
-  when: not oracle_folder_stat.stat.exists 
+  #when: not oracle_folder_stat.stat.exists 
   
 - name: Oracle DB - Copy installation media
   ansible.builtin.copy:
