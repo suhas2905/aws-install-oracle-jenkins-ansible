@@ -94,7 +94,7 @@
     mode: '0774'
 
 - name: Download Hana from S3 bucket
-  shell: aws s3 sync {{ GLOBAL_S3_BUCKET_MEDIA_FILES }}/ORACLE_DB_Software {{ oracle_zip_folder }}
+  shell: aws s3 sync {{ GLOBAL_S3_BUCKET_MEDIA_FILES }} {{ oracle_zip_folder }}
   register: download_output
   until: download_output is not failed
   retries: 5
