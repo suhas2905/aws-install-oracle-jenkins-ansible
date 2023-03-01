@@ -8,7 +8,6 @@
   become: true
   hosts: all
   roles:
-    - role: sap_anydb_install_oracle
     - role: check-inputs-oracle
       vars:
         input_variables_to_check:
@@ -39,7 +38,7 @@
   hosts: all
   roles:
     - role: ansible-role-disks
-    - role: ansible-role-parameters
+    - role: sap_anydb_install_oracle
 
 # RedHat official roles for preparing for SAP Installation
 #- name: Prepare host with RedHat certified roles
