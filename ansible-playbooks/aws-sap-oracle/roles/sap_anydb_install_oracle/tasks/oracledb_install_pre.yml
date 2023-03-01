@@ -122,7 +122,7 @@
   ansible.builtin.copy:
     remote_src: true
     directory_mode: true
-    src: "{{ sap_anydb_install_oracle_extract_path }}/LINUX_X86_64/"
+    src: "{{ oracle_unarchived_folder }}/LINUX_X86_64/"
     dest: "{{ sap_anydb_install_oracle_base }}/dvd/19.0.0"
     owner: oracle
     group: oinstall
