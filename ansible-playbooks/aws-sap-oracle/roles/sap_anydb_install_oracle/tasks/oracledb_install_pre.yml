@@ -77,7 +77,7 @@
   loop: 
     - { path: "{{ sap_anydb_install_oracle_base }}", owner: oracle, group: oinstall } #  Oracle Base directory
     - { path: "{{ sap_anydb_install_oracle_base }}/dvd/19.0.0", owner: oracle, group: oinstall } #  Oracle home image file path
-    - { path: "{{ sap_anydb_install_oracle_base }}/{{ sap_anydb_install_oracle_sid }}/19.0.0", owner: oracle, group: oinstall } #  Oracle Home installation directory
+    - { path: "{{ sap_anydb_install_oracle_base }}/{{ GLOBAL_ORACLE_SID }}/19.0.0", owner: oracle, group: oinstall } #  Oracle Home installation directory
     - { path: "{{ sap_anydb_install_oracle_inventory_central }}", owner: oracle, group: oracle } #  Oracle Central Inventory
     - { path: "{{ sap_anydb_install_oracle_base }}{{ sap_anydb_install_oracle_inventory_central }}", owner: oracle, group: oinstall } #  Oracle Inventory
     - { path: "{{ sap_anydb_install_oracle_filesystem_storage }}", owner: oracle, group: oinstall }
