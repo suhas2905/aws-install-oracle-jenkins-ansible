@@ -9,9 +9,9 @@ sap_anydb_install_oracle_prep_precheck: no
 # minimal, responsefile
 sap_anydb_install_oracle_method: minimal
 
-sap_anydb_install_oracle_sid: OR1
+#sap_anydb_install_oracle_sid: OR1
 
-sap_anydb_install_oracle_base: /oracle
+sap_anydb_install_oracle_base: /oracle/{{ GLOBAL_ORACLE_SID }}
 
 sap_anydb_install_oracle_filesystem_storage: /oradata
 
