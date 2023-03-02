@@ -66,7 +66,7 @@
 - name: Oracle DB - Root command scripts for Oracle DB Inventory and Oracle DB Home, from root user
   become_user: root
   ansible.builtin.shell: |
-    export DB_SID="{{ sap_anydb_install_oracle_sid }}"
+    export DB_SID="{{ GLOBAL_ORACLE_SID }}"
     export ORACLE_BASE="{{ sap_anydb_install_oracle_base }}"
     export ORACLE_HOME="$ORACLE_BASE/$DB_SID/19.0.0"
     export INVENTORY_LOCATION="{{ sap_anydb_install_oracle_inventory_central }}"
@@ -83,7 +83,7 @@
   failed_when: "__sap_anydb_install_oracle_config_exec.rc not in [ 0, 1 ]"
   ignore_errors: true
   ansible.builtin.shell: |
-    setenv DB_SID "{{ sap_anydb_install_oracle_sid }}"
+    setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
     export ORACLE_BASE="{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID/19.0.0"
     set CURRENT_DATE_ISO=`date +%Y-%m-%d`
