@@ -67,7 +67,7 @@
     export ORACLE_BASE="{{ sap_anydb_install_oracle_base }}"
     export ORACLE_HOME="$ORACLE_BASE/$DB_SID/19.0.0"
     export INVENTORY_LOCATION="{{ sap_anydb_install_oracle_inventory_central }}"
-    $INVENTORY_LOCATION/orainstRoot.sh
+    #$INVENTORY_LOCATION/orainstRoot.sh
     $ORACLE_HOME/root.sh
 
 - name: Oracle DB - Complete configuration of Oracle DB
