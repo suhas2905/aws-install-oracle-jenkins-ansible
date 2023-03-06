@@ -54,8 +54,8 @@
 #        sap_hana_preconfigure_fail_if_reboot_required: false
 
 # Hana installation roles
-- name: Download and Install Hana
-  become: true
-  hosts: all
-  roles:
-    - role: ansible-role-download-and-install
+#- name: Download and Install Hana
+#  become: true
+#  hosts: all
+#  roles:
+#    - role: ansible-role-download-and-install
