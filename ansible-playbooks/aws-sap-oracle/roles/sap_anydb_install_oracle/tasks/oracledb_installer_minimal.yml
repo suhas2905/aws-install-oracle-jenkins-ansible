@@ -42,7 +42,7 @@
     setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
     setenv ORACLE_BASE "{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID"
-    setenv ORA_GOLD_IMAGE_FILE_L "/sapmnt/software/ORACLE_DB_Software/oracledump/LINUX_X86_64/db_home"
+    setenv ORA_GOLD_IMAGE_FILE_L "$ORACLE_BASE/dvd/19.0.0/db_home"
     setenv INVENTORY_LOCATION "{{ sap_anydb_install_oracle_inventory_central }}"
     setenv oracle.install.db.config.starterdb.globalDBName "{{ GLOBAL_ORACLE_SID }}"
     setenv oracle.install.db.config.starterdb.SID "{{ GLOBAL_ORACLE_SID }}"
@@ -57,7 +57,7 @@
     setenv oracle.install.db.DGDBA_GROUP "dba"
     setenv oracle.install.db.KMDBA_GROUP "dba"
     setenv oracle.install.db.OSRACDBA_GROUP "dba"
-    $ORA_GOLD_IMAGE_FILE_L/SAP/19cinstall.sh -norsp -silent -ohinstall -db_sid "$DB_SID" -oracle_base "$ORACLE_BASE" -oracle_stage "$ORA_GOLD_IMAGE_FILE_L"
+  #  $ORA_GOLD_IMAGE_FILE_L/SAP/19cinstall.sh -norsp -silent -ohinstall -db_sid "$DB_SID" -oracle_base "$ORACLE_BASE" -oracle_stage "$ORA_GOLD_IMAGE_FILE_L"
 #        $ORA_GOLD_IMAGE_FILE_L/SAP/19cinstall.sh -norsp -silent -ohinstall -db_sid "$DB_SID" -oracle_base "$ORACLE_BASE" -install_home "$ORACLE_HOME" -oracle_home_name "$ORACLE_HOME_NAME" -runtime_home "$OHRDBMS" -oracle_stage "$ORA_GOLD_IMAGE_FILE_L"
 
 - name: Oracle DB - Root command scripts for Oracle DB Inventory and Oracle DB Home, from root user
