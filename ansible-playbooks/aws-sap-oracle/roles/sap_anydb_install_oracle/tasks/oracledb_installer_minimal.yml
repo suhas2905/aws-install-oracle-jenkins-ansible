@@ -42,7 +42,7 @@
     setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
     setenv ORACLE_BASE "{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID"
-    setenv ORA_GOLD_IMAGE_FILE_L "$ORACLE_BASE/dvd/19.0.0/db_home"
+    setenv ORA_GOLD_IMAGE_FILE_L "/sapmnt/software/ORACLE_DB_Software/oracledump/LINUX_X86_64/db_home"
     setenv INVENTORY_LOCATION "{{ sap_anydb_install_oracle_inventory_central }}"
     setenv oracle.install.db.config.starterdb.globalDBName "{{ GLOBAL_ORACLE_SID }}"
     setenv oracle.install.db.config.starterdb.SID "{{ GLOBAL_ORACLE_SID }}"
