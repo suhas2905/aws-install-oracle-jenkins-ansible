@@ -88,9 +88,6 @@
 
 - name: Oracle DB - Find log files
   become_user: root
-  args:
-    executable: /bin/csh
-    chdir: "{{ sap_anydb_install_oracle_base }}"
   ansible.builtin.shell: |
     ls -1 /oraInventory/logs/InstallActions*/installActions*
   register: __sap_anydb_install_oracle_logs
