@@ -144,10 +144,12 @@
     setenv ORACLE_BASE "{{ sap_anydb_install_oracle_base }}"
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID/19.0.0"
     setenv ORA_GOLD_IMAGE_FILE "$ORACLE_BASE/dvd/19.0.0/db_home/SAP"
-  args:
-    executable: /bin/csh
-    chdir: "$ORA_GOLD_IMAGE_FILE/"
-  ansible.builtin.shell: ./RUNINSTALLER -ohverify -silent   
+    cd $ORACLE_BASE/dvd/19.0.0/db_home/SAP
+    ./RUNINSTALLER -ohverify -silent
+#  args:
+#    executable: /bin/csh
+#    chdir: "$ORA_GOLD_IMAGE_FILE/"
+#  ansible.builtin.shell: ./RUNINSTALLER -ohverify -silent   
 #  when:
 #   - sap_anydb_install_oracle_prep_precheck
 
