@@ -146,6 +146,7 @@
     setenv ORA_GOLD_IMAGE_FILE "$ORACLE_BASE/dvd/19.0.0/db_home/SAP"
     cd $ORACLE_BASE/dvd/19.0.0/db_home/SAP
     ./RUNINSTALLER -ohverify -silent
+    ./RUNINSTALLER -ohinstall -silent
 #  args:
 #    executable: /bin/csh
 #    chdir: "$ORA_GOLD_IMAGE_FILE/"
