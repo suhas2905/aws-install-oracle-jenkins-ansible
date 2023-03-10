@@ -147,6 +147,7 @@
     cd $ORACLE_BASE/dvd/19.0.0/db_home/SAP
     ./RUNINSTALLER -ohverify -silent
     ./RUNINSTALLER -ohinstall -silent
+  ignore_errors: true
 #  args:
 #    executable: /bin/csh
 #    chdir: "$ORA_GOLD_IMAGE_FILE/"
