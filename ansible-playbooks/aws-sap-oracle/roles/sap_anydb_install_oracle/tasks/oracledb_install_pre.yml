@@ -159,9 +159,9 @@
 - name: Oracle DB - check installation prerequisites for Oracle DB
   become: true
   become_user: root
-  args:
-    executable: /bin/csh
-    chdir: "{{ sap_anydb_install_oracle_base }}/$DB_SID/19.0.0"
+ # args:
+ #   executable: /bin/csh
+ #   chdir: "{{ sap_anydb_install_oracle_base }}/$DB_SID/19.0.0"
   ansible.builtin.shell: |
     setenv CV_ASSUME_DISTID "OL7"
     setenv DB_SID "{{ GLOBAL_ORACLE_SID }}"
