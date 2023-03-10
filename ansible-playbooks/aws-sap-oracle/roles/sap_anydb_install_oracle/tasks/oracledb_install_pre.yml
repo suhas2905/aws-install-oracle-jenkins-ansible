@@ -93,14 +93,14 @@
     path: "/sap-installation/oracle-installation/unarchived"
     mode: '0774'
 
-- name: Download Hana from S3 bucket
+- name: Download Oracle from S3 bucket
   shell: aws s3 sync {{ GLOBAL_S3_BUCKET_MEDIA_FILES }} {{ oracle_zip_folder }}
   register: download_output
   until: download_output is not failed
   retries: 5
   run_once: true
 
-- name: Fail if no Hana file was found in the bucket
+- name: Fail if no oracle file was found in the bucket
   stat:
     path: "{{ oracle_file_full_path }}"
   register: oracle_file_stat
@@ -111,7 +111,7 @@
     path: "{{ oracle_unarchived_folder }}/DATA_UNITS"
   register: oracle_folder_stat
 
-- name: Unarchive Hana file
+- name: Unarchive Oracle file
   unarchive:
     src: "{{ oracle_file_full_path }}"
     remote_src: yes
