@@ -160,8 +160,11 @@
   become: true
   become_user: root
   ansible.builtin.shell: |
-      cd $ORACLE_HOME  
-      ./root.sh
+    cd $ORACLE_HOME  
+    ./root.sh
+    
+    
+    
 #  when:
 #    - sap_anydb_install_oracle_prep_precheck
 
