@@ -15,8 +15,8 @@
           - PRIVATE_DNS_ZONE
           - MASTER_PASSWORD
           - EFS_ID
-          - HANA_PRIVATE_IP
-          - HANA_HOSTNAME
+          - ORACLE_PRIVATE_IP
+          - ORACLE_HOSTNAME
           - S3_BUCKET_MEDIA_FILES
     - role: common-os-tasks
     - role: prepare-logs-folders
