@@ -16,12 +16,12 @@ fi
 # ------------------------------------------------------------------
 # Download ASCS dependencies
 # ------------------------------------------------------------------
-#ansible-galaxy install -f -r "ansible-playbooks/aws-sap-ascs-ers/roles/requirements.yml"
+ansible-galaxy install -f -r "ansible-playbooks/aws-sap-ascs-ers/roles/requirements.yml"
 
-#if [ $? -ne 0 ]; then
-#    echo "There was an error while downloading ASCS playbook dependencies. Please try again"
-#    exit 104
-#fi
+if [ $? -ne 0 ]; then
+    echo "There was an error while downloading ASCS playbook dependencies. Please try again"
+    exit 104
+fi
 # ------------------------------------------------------------------
 # Download Hana dependencies
 # ------------------------------------------------------------------
