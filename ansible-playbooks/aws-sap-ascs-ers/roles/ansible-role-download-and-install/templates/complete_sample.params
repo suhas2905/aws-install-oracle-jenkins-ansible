@@ -36,7 +36,7 @@ NW_GetSidNoProfiles.sid = AD0
 # NW_GetSidNoProfiles.strictSidCheck = true
 
 # Specify whether this system is to be a Unicode system.
-# NW_GetSidNoProfiles.unicode = true
+ NW_GetSidNoProfiles.unicode = true
 
 # DEPRECATED, DO NOT USE!
 NW_SAPCrypto.SAPCryptoFile = /sapmnt/software/KERNEL/SAPEXE_300-80004393.SAR
