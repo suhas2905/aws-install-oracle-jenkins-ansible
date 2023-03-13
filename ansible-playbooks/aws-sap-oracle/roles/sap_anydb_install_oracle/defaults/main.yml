@@ -25,7 +25,7 @@ sap_anydb_install_oracle_extract_path: # e.g. /software
 folder_to_run_hana_installation_from: "/sap-installation/hana-installation"
 
 oracle_zip_file: 51053828.ZIP
-oracle_zip_folder: "/sapmnt/software/ORACLE_DB_Software/Oracle_DB_Software"
+oracle_zip_folder: "/sapmnt/software/ORACLE_DB_Software/Oracle_DB_Software/ORACLE_DB_Software"
 oracle_unarchived_folder: "/sap-installation/oracle-installation/unarchived"
 oracle_file_full_path: "{{ oracle_zip_folder }}/{{ oracle_zip_file }}"
 
