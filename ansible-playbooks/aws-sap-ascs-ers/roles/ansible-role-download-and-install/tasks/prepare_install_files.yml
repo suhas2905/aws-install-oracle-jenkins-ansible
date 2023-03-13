@@ -24,7 +24,7 @@
   register: unzipped_stat
 
 - name: Unarchive ASCS files
-  shell: "{{ sapcar_dest_folder }}/sapcar -xvf {{ sar_file }} -R {{ ascs_complete_swpm_sum_install_folder }}"
+  shell: "{{ sapcar_dest_folder }}/SAPCAR* -xvf {{ sar_file }} -R {{ ascs_complete_swpm_sum_install_folder }}"
   when: unzipped_stat.matched == 0
   run_once: yes
 
