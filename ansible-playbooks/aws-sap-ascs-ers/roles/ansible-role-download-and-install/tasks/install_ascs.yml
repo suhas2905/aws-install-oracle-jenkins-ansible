@@ -16,8 +16,8 @@
     - /sapmnt/{{ GLOBAL_ERS_SID | upper }}
     - /usr/sap
     - /usr/sap/trans
-    - /usr/sap/SD1/ASCS00
-    - /usr/sap/SD1/ERS10
+    - /usr/sap/{{ GLOBAL_ERS_SID | upper }}/ASCS00
+    - /usr/sap/{{ GLOBAL_ERS_SID | upper }}/ERS10
 
 #S4HANA 2022 fix 3119751 - Linux Requirements for SAP Kernel 754 and for SAP Kernel 788 and higher
 - name: Create lib file on ASCS node
