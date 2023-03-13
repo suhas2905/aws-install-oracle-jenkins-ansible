@@ -33,7 +33,7 @@
 # NW_getFQDN.setFQDN = true
 
 # ABAP system is Unicode (true|false), only needed if it cannot be determined from the system.
-# NW_getUnicode.isUnicode =
+ NW_getUnicode.isUnicode = true
 
 # Provide  'profile' directory of SAP Netweaver-based system.
 NW_readProfileDir.profileDir = /sapmnt/{{ GLOBAL_ERS_SID }}/profile
