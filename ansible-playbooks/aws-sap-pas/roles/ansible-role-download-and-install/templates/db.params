@@ -146,7 +146,7 @@ NW_checkMsgServer.abapMSPort = {{ abap_ms_port }}
 # NW_getFQDN.FQDN =
 
 # Specify whether you want to set FQDN for the system.
- NW_getFQDN.setFQDN = false
+# NW_getFQDN.setFQDN = true
 
 # The load type chosen by the user. Valid values are: 'SAP', 'STD', 'OBR', 'HCP', 'MDA', 'HBR', 'SBR'
 NW_getLoadType.loadType = SAP
