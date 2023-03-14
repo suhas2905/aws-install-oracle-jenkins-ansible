@@ -18,7 +18,7 @@
 # HDB_Schema_Check_Dialogs.dropSchema = false
 
 # The name of the database schema.
-HDB_Schema_Check_Dialogs.schemaName = SAPHANADB
+HDB_Schema_Check_Dialogs.schemaName = SAPSR3
 
 # The password of the database schema.
 HDB_Schema_Check_Dialogs.schemaPassword = {{ GLOBAL_MASTER_PASSWORD }}
@@ -60,13 +60,13 @@ NW_HDB_DB.abapSchemaPassword = {{ GLOBAL_MASTER_PASSWORD }}
 NW_HDB_DBClient.clientPathStrategy = LOCAL
 
 # Database host
-NW_HDB_getDBInfo.dbhost = {{ GLOBAL_HANA_HOSTNAME }}
+NW_HDB_getDBInfo.dbhost = {{ GLOBAL_ORACLE_HOSTNAME }}
 
 # Database system ID
 NW_HDB_getDBInfo.dbsid = {{ DATABASE_SID }}
 
 # The instance number of the SAP HANA database server
-NW_HDB_getDBInfo.instanceNumber = {{ hana_instance_number }}
+NW_HDB_getDBInfo.instanceNumber = {{ oracle_instance_number }}
 
 # Password of user 'SYSTEM' within the 'SystemDB' tenant in an SAP HANA MultiDB server
 NW_HDB_getDBInfo.systemDbPassword = {{ GLOBAL_MASTER_PASSWORD }}
@@ -94,8 +94,8 @@ NW_HDB_getDBInfo.systemid = {{ DATABASE_SID }}
 
 # NW_Recovery_Install_HDB.checkIntegrity = false
 
-# Location for HANA backup files on the HANA database host (Target location for ABAP export archives). Default value: /usr/sap/<SID>/HDB<nn>/backup/data/<Database_name>
-NW_Recovery_Install_HDB.extractLocation = {{ hana_host_extract_location }}
+# Location for HANA backup files on the ORACLE database host (Target location for ABAP export archives). Default value: /usr/sap/<SID>/HDB<nn>/backup/data/<Database_name>
+NW_Recovery_Install_HDB.extractLocation = {{ oracle_host_extract_location }}
 
 # Number of concurrent jobs used to load and/or extract archives to HANA Host
 NW_Recovery_Install_HDB.extractParallelJobs = 24
@@ -104,7 +104,7 @@ NW_Recovery_Install_HDB.extractParallelJobs = 24
 # NW_Recovery_Install_HDB.loadOrMount = load
 
 # The OS user of the HANA '<dbsid>adm' user
-NW_Recovery_Install_HDB.sidAdmName = {{ hana_sidadm_name }}
+NW_Recovery_Install_HDB.sidAdmName = {{ oracle_sidadm_name }}
 
 # The password of the OS HANA '<dbsid>adm' user
 NW_Recovery_Install_HDB.sidAdmPassword = {{ GLOBAL_MASTER_PASSWORD }}
@@ -199,7 +199,7 @@ nwUsers.sidadmPassword = {{ GLOBAL_MASTER_PASSWORD }}
 # storageBasedCopy.abapSchemaPassword =
 
 # Instance number of the SAP HANA Database server
-storageBasedCopy.hdb.instanceNumber = {{ hana_instance_number }}
+storageBasedCopy.hdb.instanceNumber = {{ oracle_instance_number }}
 
 # Password of user 'SYSTEM' inside the SAP HANA Database Server
 # storageBasedCopy.hdb.systemPassword =
