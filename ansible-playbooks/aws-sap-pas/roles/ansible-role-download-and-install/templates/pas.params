@@ -111,7 +111,7 @@ NW_GetMasterPassword.masterPwd = {{ GLOBAL_MASTER_PASSWORD }}
 # NW_HDB_DBClient.clientPathStrategy = LOCAL
 
 # The instance number of the SAP HANA database server
-NW_HDB_getDBInfo.instanceNumber = {{ oracle_instance_number }}
+NW_HDB_getDBInfo.instanceNumber = {{ GLOBAL_ORACLE_INSTANCE_NUMBER }}
 
 # Password of user 'SYSTEM' within the 'SystemDB' tenant in an SAP HANA MultiDB server
 # NW_HDB_getDBInfo.systemDbPassword =
@@ -213,7 +213,7 @@ nwUsers.sapsysGID = {{ pas_sap_sys_gid }}
 nwUsers.sidAdmUID = {{ pas_sid_adm_uid }}
 
 # Instance number of the SAP HANA Database server
-storageBasedCopy.hdb.instanceNumber = {{ oracle_instance_number }}
+storageBasedCopy.hdb.instanceNumber = {{ GLOBAL_ORACLE_INSTANCE_NUMBER }}
 
 # Password of user 'SYSTEM' inside the SAP HANA Database Server
 storageBasedCopy.hdb.systemPassword = {{ GLOBAL_MASTER_PASSWORD }}
