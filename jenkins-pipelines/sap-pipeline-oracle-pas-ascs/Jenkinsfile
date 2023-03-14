@@ -205,5 +205,19 @@ pipeline {
                         }
                     }
                 }
+         stage('Install PAS'){
+            options {timeout(time: 2, unit: 'HOURS')}
+            steps {
+                script {
+                    // Ansible for installing PAS
+                    sh '''
+                        $STAGES_FOLDER/install_sap/install_pas.sh
+                        if [ $? -gt 0 ]; then
+                            exit 1
+                        fi 
+                    '''
+                }
+            }
+        }
 }
 }
