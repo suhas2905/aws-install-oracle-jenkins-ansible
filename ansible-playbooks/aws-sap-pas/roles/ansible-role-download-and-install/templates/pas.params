@@ -177,7 +177,7 @@ NW_Unpack.igsHelperSar = {{ igshelper_full_path }}
 NW_getLoadType.loadType = SAP
 
 # ABAP system is Unicode (true|false), only needed if it cannot be determined from the system.
-# NW_getUnicode.isUnicode =
+ NW_getUnicode.isUnicode = true
 
 # Provide  'profile' directory of SAP Netweaver-based system.
 NW_readProfileDir.profileDir = {{ profile_data_dir }}
