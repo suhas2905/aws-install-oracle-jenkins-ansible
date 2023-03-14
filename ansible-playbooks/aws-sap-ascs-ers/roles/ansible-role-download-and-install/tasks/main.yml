@@ -3,6 +3,9 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
+- name: Create sapadm users
+  include_tasks: create_sapadm_user.yml
+  
 - name: Check if reboot is needed
   include_tasks: check_reboot_is_needed.yml
 
