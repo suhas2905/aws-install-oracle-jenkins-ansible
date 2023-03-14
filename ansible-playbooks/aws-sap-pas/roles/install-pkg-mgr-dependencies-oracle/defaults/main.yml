@@ -1,0 +1,66 @@
+---
+
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# REDHAT (RHEL) RELATED VARIABLES
+rhel_packages:
+ - csh
+ - ksh
+ - mksh
+ - bc
+ - bind-utils
+ - gcc
+ - gcc-c++
+ - glibc-devel
+ - libcap
+ - libaio
+ - libaio-devel
+ - libgcc
+ - libstdc++
+ - libstdc++-devel
+ - make
+ - psmisc
+ - rdma-core-devel
+ - smartmontools
+ - sysstat
+ - unzip
+ - xorg-x11-utils
+ - xorg-x11-xauth
+ - unixODBC
+ - unixODBC-devel
+ - libnsl
+ - oracle-database-preinstall-19c
+rhel_group_packages:
+  - "@Server"
+
+# SUSE RELATED VARIABLES
+
+suse_packages:
+  - systemd
+  - python2
+  - gtk2
+  - libicu
+  - sudo
+  - tcsh
+  - libssh2-1
+  - autoyast2-installation
+  - yast2-ncurses
+  - cpupower
+  - libgcc_s1
+  - libstdc++6
+  - nvme-cli
+  - cloud-netconfig-ec2
+  - libopenssl1_0_0
+  - insserv-compat
+  - unrar_wrapper
+  - chrony
+  - net-tools-deprecated
+  - libnuma-devel
+  - gcc
+  - gcc-c++
+  - libatomic1
+  - sapconf
+  - numactl
+  - saptune
+  - patterns-sles-sap_server
