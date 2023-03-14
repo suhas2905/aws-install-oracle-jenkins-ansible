@@ -33,8 +33,8 @@
 - name: Store igshelper file full path
   set_fact: igshelper_full_path="{{ igshelper_found.files[0].path }}"
 
-- name: Store ABAP MS Port (36+Hana instance number)
-  set_fact: abap_ms_port="36{{ (GLOBAL_HANA_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_HANA_INSTANCE_NUMBER, "0"+(GLOBAL_HANA_INSTANCE_NUMBER | string)) }}"
+- name: Store ABAP MS Port (36+Oracle instance number)
+  set_fact: abap_ms_port="36{{ (GLOBAL_ORACLE_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_ORACLE_INSTANCE_NUMBER, "0"+(GLOBAL_ORACLE_INSTANCE_NUMBER | string)) }}"
   
 - name: Store ASCS MS Port (36+ASCS instance number)
   set_fact: ascs_ms_port="36{{ (GLOBAL_ASCS_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_ASCS_INSTANCE_NUMBER, "0"+(GLOBAL_ASCS_INSTANCE_NUMBER | string)) }}"
@@ -43,8 +43,8 @@
   set_fact: GLOBAL_SAP_SID="{{ GLOBAL_HANA_SID }}"
   when: GLOBAL_SAP_SID is undefined
 
-- name: Set Hana instance number with two characters
-  set_fact: hana_instance_number="{{ (GLOBAL_HANA_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_HANA_INSTANCE_NUMBER, "0"+(GLOBAL_HANA_INSTANCE_NUMBER | string)) }}"
+#- name: Set Hana instance number with two characters
+#  set_fact: hana_instance_number="{{ (GLOBAL_HANA_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_HANA_INSTANCE_NUMBER, "0"+(GLOBAL_HANA_INSTANCE_NUMBER | string)) }}"
 
 - name: Set ASCS instance number with two characters
   set_fact: ascs_instance_number="{{ (GLOBAL_ASCS_INSTANCE_NUMBER | string | length > 1) | ternary(GLOBAL_ASCS_INSTANCE_NUMBER, "0"+(GLOBAL_ASCS_INSTANCE_NUMBER | string)) }}"
