@@ -19,7 +19,7 @@
   register: unzipped_stat
 
 - name: Unarchive PAS files
-  shell: "{{ sapcar_dest_folder }}/sapcar -xvf {{ sar_file }} -R {{ swpm_sum_install_dest_folder }}"
+  shell: "{{ sapcar_dest_folder }}/SAPCAR* -xvf {{ sar_file }} -R {{ swpm_sum_install_dest_folder }}"
   when: unzipped_stat.matched == 0
 
 - name: Change permissions for sapinst file
