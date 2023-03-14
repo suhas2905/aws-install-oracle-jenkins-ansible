@@ -7,12 +7,12 @@
     gid: "{{ item.gid }}"
     state: present
   loop:
-    - { group: oinstall, gid: '1001' }
-    - { group: dba, gid: '1002' }
-    - { group: oper, gid: '1003' }
-    - { group: oracle, gid: '1004' }
-    - { group: sapsys, gid: '1005' } 
-    
+    - { group: oinstall, gid: '4001' }
+    - { group: dba, gid: '4002' }
+    - { group: oper, gid: '4003' }
+    - { group: oracle, gid: '4004' }
+    - { group: sapsys, gid: '4005' } 
+    - { group: sapinst, gid: '4006' }     
     
 - name: Oracle DB - Create Linux Users
   become_user: root
@@ -26,5 +26,6 @@
     state: present
   with_items:
     - { name: 'oracle', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
-    - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'Oracle System Administrator' }
-    - { name: 'sd1adm', uid: '1002', groups: 'sapsys', shell: '/bin/csh', comment: 'Oracle System Administrator' } 
+    - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
+    - { name: 'sd1adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
+    - { name: 'orasd1', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
