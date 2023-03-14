@@ -95,7 +95,7 @@ NW_HDB_getDBInfo.systemid = {{ DATABASE_SID }}
 # NW_Recovery_Install_HDB.checkIntegrity = false
 
 # Location for HANA backup files on the ORACLE database host (Target location for ABAP export archives). Default value: /usr/sap/<SID>/HDB<nn>/backup/data/<Database_name>
-#NW_Recovery_Install_HDB.extractLocation = {{ oracle_host_extract_location }}
+NW_Recovery_Install_HDB.extractLocation = {{ oracle_host_extract_location }}
 
 # Number of concurrent jobs used to load and/or extract archives to HANA Host
 NW_Recovery_Install_HDB.extractParallelJobs = 24
