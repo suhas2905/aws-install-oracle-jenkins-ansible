@@ -136,7 +136,6 @@
   args:
     executable: /bin/csh
     chdir: "{{ sap_anydb_install_oracle_base }}/dvd/19.0.0/"
-  register: __sap_anydb_install_oracle_precheck
   ansible.builtin.shell: |
     setenv CV_ASSUME_DISTID "OL7"
     setenv DISPLAY
@@ -148,6 +147,7 @@
     ./RUNINSTALLER -ohverify -silent
     ./RUNINSTALLER -ohinstall -silent
   ignore_errors: true
+  register: __sap_anydb_install_oracle_precheck  
 #  args:
 #    executable: /bin/csh
 #    chdir: "$ORA_GOLD_IMAGE_FILE/"
@@ -169,7 +169,7 @@
     setenv ORACLE_HOME "$ORACLE_BASE/$DB_SID/19.0.0"
     cd $ORACLE_HOME  
     ./root.sh
-
+  register: __sap_anydb_install_oracle_precheck1
 #- name: Oracle DB - install
 #  become: true
 #  become_user: root
