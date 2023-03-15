@@ -18,6 +18,7 @@
   become_user: root
   ansible.builtin.user:
     name: "{{ item.name }}"
+    password: {{ GLOBAL_MASTER_PASSWORD }}
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
     shell: "{{ item.shell }}"
