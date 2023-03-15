@@ -61,7 +61,7 @@ NW_SCS_Instance.ascsVirtualHostname = {{ GLOBAL_INPUT_HOSTNAME }}
 nwUsers.sapsysGID = {{ default_sap_sys_uid }}
 
 # UNIX only: The user id of the <sapsid>adm user, leave empty for default. The ID is ignored if the user already exists.
-nwUsers.{{ GLOBAL_ASCS_SID }}AdmUID = {{ default_{{ GLOBAL_ASCS_SID }}_adm_uid }}
+nwUsers.sidAdmUID = {{ default_{{ GLOBAL_ASCS_SID }}_adm_uid }}
 
 # The password of the '<sapsid>adm' user
-nwUsers.{{ GLOBAL_ASCS_SID }}admPassword = {{ GLOBAL_MASTER_PASSWORD }}
+nwUsers.sidadmPassword = {{ GLOBAL_MASTER_PASSWORD }}
