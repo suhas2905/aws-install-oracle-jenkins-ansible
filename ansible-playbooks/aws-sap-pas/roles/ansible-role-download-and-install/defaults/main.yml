@@ -30,7 +30,6 @@ db_params_file_full_path: "{{ pas_installer_software_folder }}/db.params"
 pas_params_file_full_path: "{{ pas_installer_software_folder }}/pas.params"
 
 # Variables for db.params and pas.params
-{{ GLOBAL_PAS_SID | lower }}adm_name: "{{ GLOBAL_PAS_SID|lower }}adm"
 sap_instance_number: "{{ GLOBAL_PAS_INSTANCE_NUMBER }}"
 {{ GLOBAL_PAS_SID | lower }}_adm_uid: "1002"
 sap_sys_gid: "4005"
