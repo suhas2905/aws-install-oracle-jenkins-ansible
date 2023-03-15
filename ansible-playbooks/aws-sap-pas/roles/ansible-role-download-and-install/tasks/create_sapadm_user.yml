@@ -27,5 +27,5 @@
   with_items:
     - { name: 'oracle', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
     - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
-    - { name: 'sd1adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
-    - { name: 'orasd1', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
+    - { name: 'sidadm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
+    - { name: 'orasid', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
