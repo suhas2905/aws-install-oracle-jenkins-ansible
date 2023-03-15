@@ -104,7 +104,7 @@ NW_Recovery_Install_HDB.extractParallelJobs = 24
 # NW_Recovery_Install_HDB.loadOrMount = load
 
 # The OS user of the HANA '<dbsid>adm' user
-NW_Recovery_Install_HDB.sidAdmName = {{ oracle_sidadm_name }}
+NW_Recovery_Install_HDB.sidAdmName = {{ oracle_{{ GLOBAL_PAS_SID | lower }}adm_name }}
 
 # The password of the OS HANA '<dbsid>adm' user
 NW_Recovery_Install_HDB.sidAdmPassword = {{ GLOBAL_MASTER_PASSWORD }}
@@ -190,7 +190,7 @@ hostAgent.sapAdmPassword = {{ GLOBAL_MASTER_PASSWORD }}
 nwUsers.sapsysGID = {{ sap_sys_gid }}
 
 # UNIX only: The user id of the <sapsid>adm user, leave empty for default. The ID is ignored if the user already exists.
-nwUsers.sidAdmUID = {{ sid_adm_uid }}
+nwUsers.sidAdmUID = {{ {{ GLOBAL_PAS_SID | lower }}_adm_uid }}
 
 # The password of the '<sapsid>adm' user
 nwUsers.sidadmPassword = {{ GLOBAL_MASTER_PASSWORD }}
