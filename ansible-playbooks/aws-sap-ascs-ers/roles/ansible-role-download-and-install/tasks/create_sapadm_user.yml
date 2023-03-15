@@ -43,7 +43,7 @@
     password: "{{ passwrd | password_hash('sha512') }}"
     state: present
   with_items:
-    - { name: '{{ GLOBAL_ORACLE_SID | lower }}adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/bash', comment: 'SAP System Administrator1' }
+    - { name: '{{ GLOBAL_ASCS_SID | lower }}adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/bash', comment: 'SAP System Administrator1' }
    
     
 
