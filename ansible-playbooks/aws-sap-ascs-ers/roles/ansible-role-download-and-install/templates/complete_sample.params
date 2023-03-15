@@ -30,7 +30,7 @@ NW_GetMasterPassword.masterPwd = des25(FkqJBMVtPHdib5RTyxzlBRMwYw==)
 # NW_GetSidNoProfiles.sapmnt = /sapmnt
 
 # The SAP system ID <SAPSID> of the system to be installed
-NW_GetSidNoProfiles.sid = AD0
+NW_GetSidNoProfiles.sid = {{ GLOBAL_ASCS_SID }}
 
 # Only use this parameter if recommended by SAP.
 # NW_GetSidNoProfiles.strictSidCheck = true
