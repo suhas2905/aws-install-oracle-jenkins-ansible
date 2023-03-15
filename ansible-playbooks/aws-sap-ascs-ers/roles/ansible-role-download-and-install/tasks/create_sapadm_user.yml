@@ -15,12 +15,9 @@
     - { group: sapinst, gid: '4006' }     
     
 - name: Oracle DB - Create Linux Users
-  become_user: root
-  vars:
-     - passwrd: {{ GLOBAL_MASTER_PASSWORD }} 
+  become_user: root 
   ansible.builtin.user:
     name: "{{ item.name }}"
-    password: "{{ item.password }}"
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
     shell: "{{ item.shell }}"
@@ -28,7 +25,22 @@
     append: yes
     state: present
   with_items:
-    - { name: 'oracle', password: '{{ passwrd | password_hash('sha512') }}', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
-    - { name: 'sapadm', password: '{{ passwrd | password_hash('sha512') }}', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
-    - { name: '{{ GLOBAL_ASCS_SID | lower}}adm', password: '{{ passwrd | password_hash('sha512') }}', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
-    - { name: 'ora{{ GLOBAL_ASCS_SID | lower }}', password: '{{ passwrd | password_hash('sha512') }}', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
+    - { name: 'oracle', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
+    - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' } 
+    - { name: 'ora{{ GLOBAL_ASCS_SID | lower }}', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
+    
+    
+- name: create sidadm user
+  become_user: root
+  vars:
+     - passwrd: {{ GLOBAL_MASTER_PASSWORD }}
+  tasks:
+    - name: create sidadm
+      user:
+        name: {{ GLOBAL_ASCS_SID | lower }}adm
+        uid: 1002
+        groups: sapsys,sapinst
+        shell: /bin/bash
+        append: yes
+        password: "{{ passwrd | password_hash('sha512') }}"
+      
