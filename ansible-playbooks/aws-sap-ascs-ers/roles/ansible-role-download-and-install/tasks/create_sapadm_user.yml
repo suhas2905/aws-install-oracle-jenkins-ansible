@@ -18,7 +18,7 @@
   become_user: root
   ansible.builtin.user:
     name: "{{ item.name }}"
-    password: "{{ GLOBAL_MASTER_PASSWORD }}"
+    password: "{{ item.password }}"
     uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
     shell: "{{ item.shell }}"
@@ -26,7 +26,7 @@
     append: yes
     state: present
   with_items:
-    - { name: 'oracle', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
-    - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
-    - { name: '{{ GLOBAL_ASCS_SID | lower}}adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
-    - { name: 'ora{{ GLOBAL_ASCS_SID | lower }}', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
+    - { name: 'oracle', password: '{{ GLOBAL_MASTER_PASSWORD }}', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
+    - { name: 'sapadm', password: '{{ GLOBAL_MASTER_PASSWORD }}', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
+    - { name: '{{ GLOBAL_ASCS_SID | lower}}adm', password: '{{ GLOBAL_MASTER_PASSWORD }}', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
+    - { name: 'ora{{ GLOBAL_ASCS_SID | lower }}', password: '{{ GLOBAL_MASTER_PASSWORD }}', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
