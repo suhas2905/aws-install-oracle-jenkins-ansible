@@ -34,5 +34,5 @@ sapinst_user_group_name: sapinst
 sapinst_gid: "4006"
 
 # Variables for the ascs.params template file
-default_{{ GLOBAL_ASCS_SID | lower }}_adm_uid: 1002
+default_sid_adm_uid: 1002
 default_sap_sys_uid: 4005
