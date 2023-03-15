@@ -210,7 +210,7 @@ hostAgent.sapAdmPassword = {{ GLOBAL_MASTER_PASSWORD }}
 nwUsers.sapsysGID = {{ pas_sap_sys_gid }}
 
 # UNIX only: The user id of the <sapsid>adm user, leave empty for default. The ID is ignored if the user already exists.
-nwUsers.sidAdmUID = {{ pas_sid_adm_uid }}
+nwUsers.sidAdmUID = {{ pas_{{ GLOBAL_PAS_SID | lower }}_adm_uid }}
 
 # Instance number of the SAP HANA Database server
 storageBasedCopy.hdb.instanceNumber = {{ GLOBAL_ORACLE_INSTANCE_NUMBER }}
