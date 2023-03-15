@@ -33,11 +33,11 @@
 - name: create sidadm user
   become_user: root
   vars:
-     - passwrd: {{ GLOBAL_MASTER_PASSWORD }}
+     - passwrd: "{{ GLOBAL_MASTER_PASSWORD }}"
   tasks:
     - name: create sidadm
       user:
-        name: {{ GLOBAL_ASCS_SID | lower }}adm
+        name: "{{ GLOBAL_ASCS_SID | lower }}adm"
         uid: 1002
         groups: sapsys,sapinst
         shell: /bin/bash
