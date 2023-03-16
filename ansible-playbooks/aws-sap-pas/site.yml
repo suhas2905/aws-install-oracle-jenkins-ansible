@@ -32,8 +32,6 @@
             hostname: "{{ GLOBAL_ASCS_HOSTNAME }}"
           - private_ip: "{{ GLOBAL_ORACLE_PRIVATE_IP }}"
             hostname: "{{ GLOBAL_ORACLE_HOSTNAME }}"
-          - private_ip: "{{ GLOBAL_PAS_PRIVATE_IP }}"
-            hostname: "{{ GLOBAL_PAS_HOSTNAME }}"
     - role: install-pkg-mgr-dependencies-oracle
     - role: install-aws-sap-data-provider-oracle
 
