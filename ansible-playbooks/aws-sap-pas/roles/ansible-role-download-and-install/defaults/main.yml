@@ -22,7 +22,7 @@ profile_data_dir: "{{ installation_root_path }}/{{ GLOBAL_PAS_SID }}/profile"
 sid_global_dir: "{{ installation_root_path }}/{{ GLOBAL_PAS_SID }}"
 
 sapinst_user_group_name: sapinst
-installation_users_group_name: instuser
+installation_users_group_name: "{{ GLOBAL_PAS_SID|lower }}adm"
 folder_to_run_pas_installation_from: /sap-installation/pas-installation
 folder_to_run_db_installation_from: /sap-installation/db-installation
 
