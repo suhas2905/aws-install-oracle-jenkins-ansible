@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT-0
 
 
-- name: Create file
+- name: update selinux & firewall
   include_tasks: create_file.yml
   
 - name: Create folders
