@@ -6,6 +6,9 @@
 - name: Create the disk mapping file
   include_tasks: create_disk_mapping_file.yml
   
+- name: Mount disks for Swap
+  include_tasks: check_swap_enabled.yml  
+  
 - name: Mount disks Oracle 
   include_tasks: mount_disk_oracle.yml
   
@@ -34,8 +37,6 @@
 - name: Mount shared EFS SAPMNT
   include_tasks: mount_disk_sapmnt.yml
   
-- name: Mount disks for Swap
-  include_tasks: check_swap_enabled.yml
 
 #- name: Mount disks for Swap
 #  include_tasks: check_swap_enabled.yml
