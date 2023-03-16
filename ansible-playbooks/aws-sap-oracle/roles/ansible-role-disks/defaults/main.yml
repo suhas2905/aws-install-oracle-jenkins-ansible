@@ -125,7 +125,7 @@ volume_group_oracle_swap: vg_swap
 logical_volume_oracle_swap: lv_swap
 
 oracle_swap_disk_type_pattern:
-  - nvme13n1
+  - nvme1n1
   
 # Variables for mounting SAP disks
 oracle_sap_folder: /usr/sap
