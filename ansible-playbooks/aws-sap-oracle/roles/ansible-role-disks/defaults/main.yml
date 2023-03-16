@@ -118,7 +118,15 @@ oracle_log_disk_type_pattern_log:
   - nvme9n1
   - nvme10n1
   - nvme11n1
+  
+# Variables for mounting SWAP disks
+oracle_swap: /swap
+volume_group_oracle_swap: vg_swap
+logical_volume_oracle_swap: lv_swap
 
+oracle_swap_disk_type_pattern:
+  - nvme13n1
+  
 # Variables for mounting SAP disks
 oracle_sap_folder: /usr/sap
 volume_group_oracle_sap: vg_usrsap
