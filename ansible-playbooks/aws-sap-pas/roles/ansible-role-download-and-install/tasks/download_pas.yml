@@ -24,8 +24,10 @@
   ansible.builtin.unarchive:
     src: install_export_dest_folder
     dest: install_export_dest_folder  
-  
+    remote_src: yes  
+    
 - name: Unarchive EXPORTS file
   ansible.builtin.unarchive:
     src: oracle_client_dest_folder
     dest: oracle_client_dest_folder
+    remote_src: yes 
