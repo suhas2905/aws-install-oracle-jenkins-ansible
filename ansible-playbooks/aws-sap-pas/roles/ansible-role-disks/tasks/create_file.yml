@@ -3,12 +3,11 @@
     configfile: "/etc/selinux/config"
     policy: targeted
     state: permissive
-	
-	
+
 - name: Open firewall for 1521 port
   become: true
   become_user: root
   ansible.builtin.shell: |
       firewall-cmd --zone=public --add-port=1521/tcp --permanent
-	  firewall-cmd --reload
+      firewall-cmd --reload
   register: firewall_Open_status
