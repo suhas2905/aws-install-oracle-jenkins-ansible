@@ -19,15 +19,3 @@
     paths: "{{ pas_installer_dest_folder }}/Kernel/"
   register: filesFound
   failed_when: filesFound.matched == 0
-  
-- name: Unarchive EXPORTS file
-  ansible.builtin.unarchive:
-    src: install_export_dest_folder
-    dest: install_export_dest_folder  
-    remote_src: yes  
-    
-- name: Unarchive EXPORTS file
-  ansible.builtin.unarchive:
-    src: oracle_client_dest_folder
-    dest: oracle_client_dest_folder
-    remote_src: yes 
