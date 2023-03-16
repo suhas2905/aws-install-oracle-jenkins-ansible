@@ -21,7 +21,7 @@
 
 - name: Prepare installation users and directories
   include_tasks: prepare_install_dirs_and_fix_users.yml
-  when: sidadm_user_output is changed
+  #when: sidadm_user_output is changed
 
 - name: Prepare download basket
   include_tasks: prepare_download_basket.yml
