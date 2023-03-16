@@ -1,0 +1,5 @@
+- name: Put SELinux in permissive mode, logging actions that would be blocked.
+  ansible.posix.selinux:
+    configfile: "/etc/selinux/config"
+    policy: targeted
+    state: permissive
