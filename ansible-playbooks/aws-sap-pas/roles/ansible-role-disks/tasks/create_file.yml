@@ -1,0 +1,6 @@
+- name: create file
+  become: true
+  become_user: root
+  ansible.builtin.shell: |
+          touch pas_file
+  when: GLOBAL_INPUT_HOSTNAME == GLOBAL_ORACLE_HOSTNAME
