@@ -5,6 +5,9 @@
 - name: Mount MAIN / of EFS
   include_tasks: mount_disk_mainroot.yml
   
+- name: set selinux
+  include_tasks: check_selinux_permission.yml
+  
 - name: Create users
   include_tasks: create_users.yml
 
