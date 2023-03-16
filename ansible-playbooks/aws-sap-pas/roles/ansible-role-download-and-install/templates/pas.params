@@ -36,7 +36,7 @@ sing 'rsecssfx'. Leave empty if you want to use the default key.
 # NW_CI_Instance.ascsInstanceNumber =
 
 # Standard system with AS ABAP only: Virtual host name for the ASCS instance. Leave empty for default.
-NW_CI_Instance.ascsVirtualHostname = {{ GLOBAL_PAS_HOSTNAME }}
+NW_CI_Instance.ascsVirtualHostname = demo-pas
 
 # Instance number of the primary application server instance. Leave empty for default.
 NW_CI_Instance.ciInstanceNumber = {{ GLOBAL_PAS_INSTANCE_NUMBER }}
@@ -48,7 +48,7 @@ NW_CI_Instance.ciInstanceNumber = {{ GLOBAL_PAS_INSTANCE_NUMBER }}
 # NW_CI_Instance.ciMSPortInternal =F
 
 # Virtual host name of the primary application server instance . Leave empty for default.
-NW_CI_Instance.ciVirtualHostname = {{ GLOBAL_PAS_HOSTNAME }}
+NW_CI_Instance.ciVirtualHostname = demo-pas
 
 # Create file 'prxyinfo(.DAT)' in the global directory, if it does not already exist and set 'gw/prxy_info' in the default profile accordingly.  Default is '
 false'.
@@ -71,7 +71,7 @@ fNodes'
 # NW_CI_Instance.scsMSPortInternal =
 
 # Standard system with AS Java only: Virtual host name for the SCS instance. Leave empty for default.
-NW_CI_Instance.scsVirtualHostname = {{ GLOBAL_PAS_HOSTNAME }}
+NW_CI_Instance.scsVirtualHostname = demo-pas
 
 # Specify new password of the DDIC user in client 000, different from Master Password
 # NW_CI_Instance_ABAP_Reports.ddic000Password =
