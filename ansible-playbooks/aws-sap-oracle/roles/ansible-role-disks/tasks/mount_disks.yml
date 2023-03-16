@@ -8,7 +8,10 @@
   
 - name: Mount disks for Swap
   include_tasks: check_swap_enabled.yml
-
+  
+- name: set selinux permissive
+  include_tasks: check_selinux_permission.yml
+  
 - name: Mount disks Oracle 
   include_tasks: mount_disk_oracle.yml
   
