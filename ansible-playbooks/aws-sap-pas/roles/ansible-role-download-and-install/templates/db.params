@@ -142,6 +142,8 @@ archives.downloadBasket = /sapmnt/software
 # Password for the 'sapadm' user of the SAP Host Agent
 # hostAgent.sapAdmPassword =
 
+installation_export.archivesFolder = /sapmnt/software/Exports/LABEL.ASC
+
 # Windows only: The domain of all users of this SAP system. Leave empty for default.
 # nwUsers.sapDomain =
 
