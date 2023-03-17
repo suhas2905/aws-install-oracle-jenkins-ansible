@@ -32,7 +32,6 @@
 - name: Install PAS
   include_tasks: "{{ item }}"
   loop:
-    - install_pas_db.yml
     - install_pas.yml
 
 - name: Check if installation finished well
