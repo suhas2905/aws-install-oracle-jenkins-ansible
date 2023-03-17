@@ -1,0 +1,12 @@
+---
+
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Common roles for preparing the image
+- name: Check inputs, prepare logs, hostname, install basic dependencies and AWS Data Provider
+  become: true
+  hosts: all
+  roles:
+    - role: ansible-role-download-and-install
+      
