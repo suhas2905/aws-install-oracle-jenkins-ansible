@@ -26,6 +26,9 @@ installation_users_group_name: "{{ GLOBAL_PAS_SID|lower }}adm"
 folder_to_run_pas_installation_from: /sap-installation/pas-installation
 folder_to_run_db_installation_from: /sap-installation/db-installation
 
+folder_to_run_db_installation: /sap-installation
+
+
 db_params_file_full_path: "{{ pas_installer_software_folder }}/db.params"
 pas_params_file_full_path: "{{ pas_installer_software_folder }}/pas.params"
 
