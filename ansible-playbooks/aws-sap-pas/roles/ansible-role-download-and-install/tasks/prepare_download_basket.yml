@@ -17,4 +17,4 @@
     src: "{{ item }}"
     dest: "{{ download_basket }}/{{ item | basename }}"
     remote_src: yes
-  loop: "{{ dir_list.results | map(attribute='files') | sum(start=[]) | map(attribute='path') | list }}"
+  #loop: "{{ dir_list.results | map(attribute='files') | sum(start=[]) | map(attribute='path') | list }}"
