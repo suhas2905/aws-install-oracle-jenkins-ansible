@@ -12,9 +12,20 @@
     - "{{ hana_client_dest_folder }}"
     - "{{ install_export_dest_folder }}"
     
+#- name: Fill download basket
+#  copy:
+#    src: "{{ item }}"
+#    dest: "{{ download_basket }}/{{ item | basename }}"
+#    remote_src: yes
+#  loop: "{{ dir_list.results | map(attribute='folders') | sum(start=[]) | map(attribute='path') | list }}"
+
 - name: Fill download basket
   copy:
     src: "{{ item }}"
-    dest: "{{ download_basket }}/{{ item | basename }}"
+    dest: "{{ download_basket }}"
     remote_src: yes
-  #loop: "{{ dir_list.results | map(attribute='files') | sum(start=[]) | map(attribute='path') | list }}"
+    loop:
+    - "{{ kernel_dest_folder }}"
+    - "{{ hana_client_dest_folder }}"
+    - "{{ install_export_dest_folder }}"
+  #loop: "{{ dir_list.results | map(attribute='folders') | sum(start=[]) | map(attribute='path') | list }}"
