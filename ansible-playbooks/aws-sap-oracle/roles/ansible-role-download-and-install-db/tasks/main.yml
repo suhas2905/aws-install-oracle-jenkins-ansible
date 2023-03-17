@@ -35,8 +35,8 @@
     - install_pas_db.yml
 #    - install_pas.yml
 
-- name: Check if installation finished well
-  include_tasks: check_installation.yml
+#- name: Check if installation finished well
+#  include_tasks: check_installation.yml
 
-- name: Remove used credentials
-  include_tasks: remove_credentials.yml
+#- name: Remove used credentials
+#  include_tasks: remove_credentials.yml
