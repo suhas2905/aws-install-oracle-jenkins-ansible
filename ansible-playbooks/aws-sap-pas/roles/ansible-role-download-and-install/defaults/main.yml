@@ -39,7 +39,7 @@ pas_sap_sys_gid: "4005"
 pas_sid_adm_uid: "1002"
 sapinst_gid: "4006"
 
-download_basket: "{{ install_export_dest_folder }}"
+download_basket: "{{ swpm_sum_install_dest_folder }}"
 oracle_host_extract_location: "/backup/ORACLEDUMPS/{{ GLOBAL_PAS_SID|upper }}/ORADB{{ sap_instance_number }}/backup/data/{{ GLOBAL_SAP_SID|upper }}"
 oracle_sidadm_name: "{{ GLOBAL_PAS_SID|lower }}adm"
 
