@@ -134,7 +134,7 @@ NW_readProfileDir.profileDir = {{ profile_data_dir }}
 # NW_readProfileDir.sapdrive =
 
 # The folder containing all archives that have been downloaded from http://support.sap.com/swdc and are supposed to be used in this procedure
-archives.downloadBasket = /sapmnt/software/Exports/DATA_UNITS
+archives.downloadBasket = /sapmnt/software
 
 # Windows only: The domain of the SAP Host Agent user
 # hostAgent.domain =
@@ -142,7 +142,7 @@ archives.downloadBasket = /sapmnt/software/Exports/DATA_UNITS
 # Password for the 'sapadm' user of the SAP Host Agent
 # hostAgent.sapAdmPassword =
 
-installation_export.archivesFolder = /sapmnt/software/Exports/DATA_UNITS/LABELIDX.ASC
+#installation_export.archivesFolder = /sapmnt/software
 
 # Windows only: The domain of all users of this SAP system. Leave empty for default.
 # nwUsers.sapDomain =
