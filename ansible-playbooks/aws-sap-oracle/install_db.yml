@@ -8,5 +8,5 @@
   become: true
   hosts: all
   roles:
-    - role: ansible-role-download-and-install
+    - role: ansible-role-download-and-install-db
       
