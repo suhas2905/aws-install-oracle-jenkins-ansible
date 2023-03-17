@@ -62,7 +62,7 @@
     src: "{{ item.file_name }}"
     dest: "{{ item.dest }}"
   with_items:
-    - file_name: db.params
-      dest: "{{ db_params_file_full_path }}"
+  #  - file_name: db.params
+  #    dest: "{{ db_params_file_full_path }}"
     - file_name: pas.params
       dest: "{{ pas_params_file_full_path }}"
