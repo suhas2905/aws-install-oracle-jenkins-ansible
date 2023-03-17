@@ -134,7 +134,7 @@ NW_readProfileDir.profileDir = {{ profile_data_dir }}
 # NW_readProfileDir.sapdrive =
 
 # The folder containing all archives that have been downloaded from http://support.sap.com/swdc and are supposed to be used in this procedure
-archives.downloadBasket = /sapmnt/software/SWPM-SUM-PAS
+archives.downloadBasket = /sapmnt/software/Kernel
 
 SAPINST.CD.PACKAGE.KERNEL = /sapmnt/software/SWPM-SUM-PAS/Kernel
 SAPINST.CD.PACKAGE.LOAD = /sapmnt/software/SWPM-SUM-PAS/Exports/51050829_3
