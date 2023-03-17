@@ -7,8 +7,8 @@
   include_tasks: create_sapadm_user.yml
   
   
-- name: Check if reboot is needed
-  include_tasks: check_reboot_is_needed.yml
+#- name: Check if reboot is needed
+#  include_tasks: check_reboot_is_needed.yml
 
 - name: Download PAS Installation media
   include_tasks: download_pas.yml
@@ -33,7 +33,7 @@
   include_tasks: "{{ item }}"
   loop:
     - install_pas_db.yml
-    - install_pas.yml
+#    - install_pas.yml
 
 - name: Check if installation finished well
   include_tasks: check_installation.yml
