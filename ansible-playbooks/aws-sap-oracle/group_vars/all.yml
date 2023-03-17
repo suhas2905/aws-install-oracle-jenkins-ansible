@@ -13,6 +13,7 @@ GLOBAL_ORACLE_INSTANCE_NUMBER: "{{ ORACLE_INSTANCE_NUMBER }}"
 
 # Removes trailing slashes
 GLOBAL_S3_BUCKET_MEDIA_FILES: "{{ S3_BUCKET_MEDIA_FILES | regex_replace('\\/$', '') }}"
+GLOBAL_PAS_S3_DOWNLOAD_BUCKET_URL: "{{ S3_BUCKET_MEDIA_FILES | regex_replace('\\/$', '') }}"
 GLOBAL_EFS_ID: "{{ EFS_ID }}"
 
 # Optional variables caught from the user
