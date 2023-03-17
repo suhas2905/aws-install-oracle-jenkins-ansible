@@ -136,6 +136,8 @@ NW_readProfileDir.profileDir = {{ profile_data_dir }}
 # The folder containing all archives that have been downloaded from http://support.sap.com/swdc and are supposed to be used in this procedure
 archives.downloadBasket = /sapmnt/software/SWPM-SUM-PAS
 
+SAPINST.CD.PACKAGE.LOAD = /sapmnt/software/SWPM-SUM-PAS/Exports/51050829_3/DATA_UNITS/LABELIDX.ASC
+
 # Windows only: The domain of the SAP Host Agent user
 # hostAgent.domain =
 
