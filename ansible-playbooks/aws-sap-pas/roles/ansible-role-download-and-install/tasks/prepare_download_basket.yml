@@ -10,6 +10,7 @@
   loop:
     - "{{ kernel_dest_folder }}"
     - "{{ hana_client_dest_folder }}"
+    - "{{ install_export_dest_folder }}"
     
 - name: Fill download basket
   copy:
