@@ -36,6 +36,7 @@
     - "{{ swpm_sum_install_dest_folder }}"
     - "{{ profile_data_dir }}"
     - "{{ sid_global_dir }}"
+    - "{{ folder_to_run_db_installation }}"
 
 - name: Ensure installation folders exist and have right permissions
   file:
