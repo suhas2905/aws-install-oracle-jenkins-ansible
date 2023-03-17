@@ -55,21 +55,21 @@
     name: root
     group: root
 
-- name: Remove "{{ installation_users_group_name }}" user
-  user:
-    name: "{{ installation_users_group_name }}"
-    state: absent
+#- name: Remove "{{ installation_users_group_name }}" user
+  #user:
+  #  name: "{{ installation_users_group_name }}"
+   # state: absent
 
 - name: Remove "sapinst" user
   user:
     name: "sapinst"
     state: absent
 
-- name: Remove the group "{{ installation_users_group_name }}"
-  group:
-    name: "sapinst"
-    state: absent
+#- name: Remove the group "{{ installation_users_group_name }}"
+# group:
+#   name: "sapinst"
+#   state: absent
 
-- name: Ensure group "{{ installation_users_group_name }}" was removed
-  shell: groupdel "{{ installation_users_group_name }}"
-  ignore_errors: yes
+#- name: Ensure group "{{ installation_users_group_name }}" was removed
+# shell: groupdel "{{ installation_users_group_name }}"
+# ignore_errors: yes
