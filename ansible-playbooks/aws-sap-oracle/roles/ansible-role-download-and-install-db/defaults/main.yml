@@ -1,0 +1,53 @@
+---
+
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+db_product_id_to_install: "{{ GLOBAL_PAS_DB_PRODUCT_ID | default('NW_ABAP_DB:NW750.ORA.ABAPHA') }}"
+pas_product_id_to_install : "{{ GLOBAL_PAS_PRODUCT_ID | default('NW_ABAP_CI:NW750.ORA.ABAPHA') }}"
+sap_schema_name: "SAPSR3"
+
+installation_root_path: /sapmnt
+pas_installer_software_folder: "{{ installation_root_path }}/software"
+pas_installer_dest_folder: "{{ pas_installer_software_folder }}"
+swpm_dest_folder: "{{ pas_installer_software_folder }}/SWPM"
+swpm_sum_install_dest_folder: "{{ pas_installer_software_folder }}/SWPM-SUM-PAS"
+sapcar_dest_folder: "{{ pas_installer_software_folder }}/SAPCAR"
+kernel_dest_folder: "{{ pas_installer_software_folder }}/Kernel"
+install_export_dest_folder: "{{ pas_installer_software_folder }}/Exports"
+hana_client_dest_folder: "{{ pas_installer_software_folder }}/Oracle_Client_Software"
+
+backup_data_dir: "/backup/data/{{ GLOBAL_PAS_SID }}"
+profile_data_dir: "{{ installation_root_path }}/{{ GLOBAL_PAS_SID }}/profile"
+sid_global_dir: "{{ installation_root_path }}/{{ GLOBAL_PAS_SID }}"
+
+sapinst_user_group_name: sapinst
+installation_users_group_name: "{{ GLOBAL_PAS_SID|lower }}adm"
+folder_to_run_pas_installation_from: /sap-installation/pas-installation
+folder_to_run_db_installation_from: /sap-installation/db-installation
+
+db_params_file_full_path: "{{ pas_installer_software_folder }}/db.params"
+pas_params_file_full_path: "{{ pas_installer_software_folder }}/pas.params"
+
+# Variables for db.params and pas.params
+sidadm_name: "{{ GLOBAL_PAS_SID|lower }}adm"
+sap_instance_number: "{{ GLOBAL_PAS_INSTANCE_NUMBER }}"
+sid_adm_uid: "1002"
+sap_adm_uid: "1003"
+sap_sys_gid: "4005"
+pas_sap_sys_gid: "4005"
+pas_sid_adm_uid: "1002"
+sapinst_gid: "4006"
+
+download_basket: "{{ swpm_sum_install_dest_folder }}"
+oracle_host_extract_location: "/backup/ORACLEDUMPS/{{ GLOBAL_PAS_SID|upper }}/ORADB{{ sap_instance_number }}/backup/data/{{ GLOBAL_SAP_SID|upper }}"
+oracle_sidadm_name: "{{ GLOBAL_PAS_SID|lower }}adm"
+
+pas_sapenv_original_path: "/home/{{ GLOBAL_PAS_SID | lower }}adm/.sapenv.sh"
+pas_sapenv_custom_path: "/home/{{ GLOBAL_PAS_SID | lower }}adm/.sapenv-ansible.sh"
+
+pas_dbenv_original_path: "/home/{{ GLOBAL_PAS_SID | lower }}adm/.dbenv.sh"
+pas_dbenv_custom_path: "/home/{{ GLOBAL_PAS_SID | lower }}adm/.dbenv-ansible.sh"
+
+
+pas_node_group_name: "pas"

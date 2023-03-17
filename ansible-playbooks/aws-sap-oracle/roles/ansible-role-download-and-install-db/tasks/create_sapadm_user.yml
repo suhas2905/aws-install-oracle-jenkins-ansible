@@ -1,0 +1,31 @@
+---
+
+- name: Oracle DB - Create Linux User Groups
+  become_user: root
+  ansible.builtin.group:
+    name: "{{ item.group }}"
+    gid: "{{ item.gid }}"
+    state: present
+  loop:
+    - { group: oinstall, gid: '4001' }
+    - { group: dba, gid: '4002' }
+    - { group: oper, gid: '4003' }
+    - { group: oracle, gid: '4004' }
+    - { group: sapsys, gid: '4005' } 
+    - { group: sapinst, gid: '4006' }     
+    
+- name: Oracle DB - Create Linux Users
+  become_user: root
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    uid: "{{ item.uid }}"
+    groups: "{{ item.groups }}"
+    shell: "{{ item.shell }}"
+    comment: "{{ item.comment }}"
+    append: yes
+    state: present
+  with_items:
+    - { name: 'oracle', uid: '1001', groups: 'oinstall,dba,oper', shell: '/bin/csh', comment: 'Oracle System Administrator' }
+    - { name: 'sapadm', uid: '1003', groups: 'sapsys', shell: '/bin/csh', comment: 'SAP host agent Administrator' }
+    - { name: '{{ GLOBAL_PAS_SID | lower }}adm', uid: '1002', groups: 'sapsys,sapinst', shell: '/bin/csh', comment: 'SAP System Administrator' } 
+    - { name: 'ora{{ GLOBAL_PAS_SID | lower }}', uid: '1004', groups: 'sapsys,dba,oper', shell: '/bin/csh', comment: 'SAP System Administrator' }
