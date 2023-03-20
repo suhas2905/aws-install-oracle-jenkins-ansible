@@ -282,7 +282,7 @@ ora.multitenant.pdbsid = {{ DATABASE_SID }}
 # ora.whatIsSHOH = false
 
 # ABAP schema
-# storageBasedCopy.ora.ABAPSchema =
+storageBasedCopy.ora.ABAPSchema = SAPSR3
 
 # Oracle client version: 121, 112, ...
 storageBasedCopy.ora.clientVersion = 19
