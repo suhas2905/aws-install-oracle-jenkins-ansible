@@ -19,7 +19,11 @@ if [ -z "$ascs_private_ip" ]; then
     echo "No ASCS instance private IP was found. Please check Terraform step"
     exit 101
 fi
-
+ers_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json ers_instance_private_ip | jq -r '.[0]')
+if [ -z "$ers_private_ip" ]; then
+    echo "No ASCS instance private IP was found. Please check Terraform step"
+    exit 101
+fi
 pas_private_ip=$(terraform -chdir="$PWD/$TERRAFORM_FOLDER_NAME" output -json app_instance_private_ip | jq -r '.[0]')
 if [ -z "$pas_private_ip" ]; then
     echo "No PAS instance public IP was found. Please check Terraform step"
@@ -77,6 +81,10 @@ echo "DATABASE_INSTANCE_NUMBER: $ORACLE_INSTANCE_NUMBER_CHKD" >> $VAR_FILE_FULL_
 echo "ASCS_INSTANCE_NUMBER: $ASCS_INSTANCE_NUMBER_CHKD" >> $VAR_FILE_FULL_PATH
 echo "ASCS_PRIVATE_IP: $ascs_private_ip" >> $VAR_FILE_FULL_PATH
 echo "ASCS_HOSTNAME: $ASCS_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
+echo "ERS_PRIVATE_IP: $ers_private_ip" >> $VAR_FILE_FULL_PATH
+echo "ERS_HOSTNAME: $ERS_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
+echo "PAS_PRIVATE_IP: $pas_private_ip" >> $VAR_FILE_FULL_PATH
+echo "PAS_HOSTNAME: $PAS_INSTANCES_NAME_CHKD" >> $VAR_FILE_FULL_PATH
 echo "S3_BUCKET_MEDIA_FILES: $S3_ROOT_FOLDER_INSTALL_FILES_CHKD" >> $VAR_FILE_FULL_PATH
 echo "ENABLE_HA: false" >> $VAR_FILE_FULL_PATH
 echo "PAS_DB_PRODUCT_ID: $PRODUCT_ID_PAS_DB_CHKD" >> $VAR_FILE_FULL_PATH
