@@ -61,8 +61,8 @@
     - role: ansible-role-download-and-install
 
 # Configure HANA hosts in PAS instance
-- name: Configure HANA hosts in PAS instance
-  become: true
-  hosts: all
-  roles:
-    - role: ansible-role-register-hana-hosts
+#- name: Configure HANA hosts in PAS instance
+#  become: true
+#  hosts: all
+#  roles:
+#    - role: ansible-role-register-hana-hosts
