@@ -8,7 +8,7 @@
   #In case of xvdf
   #shell: grep {{ item }} {{ disk_mapping_file_full_path }} | awk '{print $2}'
   register: volumes_found
-  with_items: "{{ oracle_swap_disk_type_pattern }}"
+  with_items: "/dev/nvme13n1"
 
 - name: Register fact with stdout for volume names
   set_fact: mount_name="{{ item.stdout }}"
@@ -22,7 +22,7 @@
 - name: Create the physical volumes and volume group
   lvg:
     vg: "{{ volume_group_oracle_swap }}"
-    pvs: "{{ volume_names|join(',')}}"
+    pvs: "/dev/nvme13n1"
   register: volumes_output
 
 - name: Create the logical volume
