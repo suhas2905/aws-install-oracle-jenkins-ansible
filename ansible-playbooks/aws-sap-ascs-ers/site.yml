@@ -1,5 +1,5 @@
 ---
-1
+
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
@@ -32,7 +32,9 @@
           - private_ip: "{{ GLOBAL_ASCS_PRIVATE_IP }}"
             hostname: "{{ GLOBAL_ASCS_HOSTNAME }}"
           - private_ip: "{{ GLOBAL_ASCS_PRIVATE_IP }}"
-            hostname: "{{ GLOBAL_ASCS_HOSTNAME_ORACLE }}"            
+            hostname: "{{ GLOBAL_ASCS_HOSTNAME_ORACLE }}"   
+          - private_ip: "{{ GLOBAL_ERS_PRIVATE_IP }}"
+            hostname: "{{ GLOBAL_ERS_HOSTNAME_ORACLE }}"           
     - role: install-pkg-mgr-dependencies
     - role: install-aws-sap-data-provider
 
