@@ -17,6 +17,12 @@ suse_packages:
 ascs_oip_config_name: "rsc_vip_ascs"
 ers_oip_config_name: "rsc_vip_ers"
 
+#Overlay IP
+ascs_vir_config_name: "nwascs"
+ers_vir_config_name: "nwers"
+
+
+
 #FileSystem
 sapascs_fs_topology_name: "rsc_fs_ascs"
 sapers_fs_topology_name: "rsc_fs_ers"
