@@ -202,7 +202,7 @@ ora.SystemPassword = {{ GLOBAL_MASTER_PASSWORD }}
 # ora.dbInstanceRam =
 
 # Path to ORACLE_HOME directory
-ora.dbhome = /oracle/SD1/19
+ora.dbhome = /oracle/{{ DATABASE_SID }}/19
 
 # Oracle database vault.
 # ora.hasDatabaseVault = false
@@ -223,7 +223,7 @@ ora.dbhome = /oracle/SD1/19
 ora.multitenant.installMT = FALSE
 
 # Name of the database ID (DBSID) of the Pluggable Database
-ora.multitenant.pdbsid = SD1
+ora.multitenant.pdbsid = {{ DATABASE_SID }}
 
 # Oracle oraarch drive.
 # ora.oraarchDrive =
