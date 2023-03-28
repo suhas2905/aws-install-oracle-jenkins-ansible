@@ -3,8 +3,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-ascs_product_id_to_install: "{{ GLOBAL_ASCS_PRODUCT_ID | default('NW_ABAP_ASCS:S4HANA2021.CORE.HDB.ABAPHA') }}"
-ers_product_id_to_install: "{{ GLOBAL_ERS_PRODUCT_ID | default('NW_ERS:S4HANA2021.CORE.HDB.ABAPHA') }}"
+ascs_product_id_to_install: "{{ GLOBAL_ASCS_PRODUCT_ID | default('NW_ABAP_ASCS:NW750.ORA.ABAPHA') }}"
+ers_product_id_to_install: "{{ GLOBAL_ERS_PRODUCT_ID | default('NW_ERS:NW750.ORA.ABAPHA') }}"
 
 ascs_installer_dest_folder: /sapmnt/software
 ascs_kernel_folder: Kernel
